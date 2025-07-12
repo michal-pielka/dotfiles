@@ -1,0 +1,11 @@
+# nvim specific ignores
+
+# Ignore plugin manager files/dirs
+lazy-lock.json
+pack/
+plugin/packer_compiled.lua
+
+# Ignore session, swap, and undo files
+*.swp
+*.swo
+.undo/
