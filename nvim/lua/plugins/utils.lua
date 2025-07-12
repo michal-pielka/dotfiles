@@ -2,12 +2,12 @@ return {
   -- Vim-surround
   {
     "tpope/vim-surround",
-    lazy = false,
+    keys = { "ys", "ds", "cs", "S" }, -- Load on keypress
   },
   -- bufdelete - for closing current buffer/tab
   {
     "famiu/bufdelete.nvim",
-    lazy = false,
+    cmd = "Bdelete", -- Load when command is used
   },
   -- markdown-preview
   {

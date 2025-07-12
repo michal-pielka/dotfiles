@@ -18,3 +18,16 @@ autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+-- Highlight on yank
+-- This creates a visual flash on the text you have just yanked.
+autocmd("TextYankPost", {
+  group = my_cmds,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch", -- The highlight group to use. 'IncSearch' is a good default.
+      timeout = 200,       -- How long the highlight lasts in milliseconds.
+    })
+  end,
+})
