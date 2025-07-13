@@ -25,11 +25,13 @@ f() {
 
 # nvim with fzf
 # The following is basically: nf='nvim $(fd | fzf --multi' with the option to abort and add flags like -e py, -t f etc.
+# Default behavior is to only search for files (-t f).
 nf() {
-  # Run fd with all the args, pipe into fzf (multi‑select)
-  files=($(fd "$@" | fzf --multi))
+  # Run fd with a default type of 'file', but allow user to add/override with their own flags ("$@").
+  # For example, `nf -t d` will work because the user's -t d flag overrides the default -t f.
+  files=($(fd --type file "$@" | fzf --multi))
 
-  # If we got at least one selection, open with nvim
+  # If we got at least one selection, open with nvim.
   if [ ${#files[@]} -gt 0 ]; then
     nvim "${files[@]}"
   fi

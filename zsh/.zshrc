@@ -13,4 +13,5 @@ source "${ZSH_CONFIG_PATH}/functions.zsh"
 source "${ZSH_CONFIG_PATH}/plugins.zsh"
 source "${ZSH_CONFIG_PATH}/theme.zsh"
 
-# Any other commands can go below.
+# 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
