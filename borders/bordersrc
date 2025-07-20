@@ -1,3 +1,0 @@
-source "$HOME/.config/constants.sh"
-
-borders active_color=$COLOR_WHITE_BRIGHT_TRANSP width=7.5
