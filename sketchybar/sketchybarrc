@@ -1,54 +1,52 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
+# Load constants and helpers
+source "$HOME/.config/constants.sh"
 
-# General bar and defaults
-sketchybar --bar height=30 \
-	color="$BAR_COLOR" \
-	shadow="$SHADOW" \
-	position=top \
-	sticky=on \
-	padding_right=0 \
-	padding_left=3 \
-	corner_radius="$CORNER_RADIUS" \
-	y_offset=5 \
-	margin=5 \
-	blur_radius=20 \
-	notch_width=200 \
-	--default updates=when_shown \
-	icon.font="$FONT:Bold:13.5" \
-	icon.color="$ICON_COLOR" \
-	icon.padding_left="$PADDINGS" \
-	icon.padding_right="$PADDINGS" \
-	label.font="$FONT:Bold:13.0" \
-	label.color="$LABEL_COLOR" \
-	label.padding_left="$PADDINGS" \
-	label.padding_right="$PADDINGS" \
-	background.padding_right="$PADDINGS" \
-	background.padding_left="$PADDINGS" \
-	popup.background.border_width=1 \
-	popup.background.corner_radius=11 \
-	popup.background.border_color="$POPUP_BORDER_COLOR" \
-	popup.background.color="$POPUP_BACKGROUND_COLOR" \
-	popup.background.shadow.drawing="$SHADOW"
+# -----------------------------------------------------------------------------
+# Bar Configuration
+# -----------------------------------------------------------------------------
+sketchybar --bar color=0x00000000 \
+                 height=39        \
+                 margin=0         \
+                 y_offset=0       \
+                 padding_left=8   \
+                 padding_right=8
 
-# Left
-# source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/front_app.sh"
+# -----------------------------------------------------------------------------
+# Default Settings
+# -----------------------------------------------------------------------------
+# All items will inherit these properties
+sketchybar --default background.border_color=$COLOR_WHITE_BRIGHT_TRANSP \
+                     background.border_width=2 \
+                     background.height=29 \
+                     background.corner_radius=9 \
+                     icon.color=$COLOR_WHITE_BRIGHT_TRANSP \
+                     icon.font="$FONT_ICON" \
+                     icon.highlight_color=$COLOR_BACKGROUND \
+                     icon.padding_left=6 \
+                     icon.padding_right=2 \
+                     label.color=$COLOR_WHITE_BRIGHT_TRANSP \
+                     label.font="$FONT_LABEL" \
+                     label.highlight_color=$COLOR_BACKGROUND \
+                     label.padding_left=2 \
+                     label.padding_right=6
 
-# Center (of notch)
-source "$ITEM_DIR/spotify.sh"
+# Bracker defaults
+sketchybar --default-for bracket background.color=0x401d2021 \
+                                 background.blur_radius=20
 
-# Right
-source "$ITEM_DIR/clock.sh"
-source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/volume.sh"
-source "$ITEM_DIR/cpu.sh"
+# -----------------------------------------------------------------------------
+# Load Bar Items, Brackets, and Separators
+# -----------------------------------------------------------------------------
+# This file now controls the order of everything on the bar
+source "$HOME/.config/sketchybar/bar_items.sh"
 
-#################### Finalizing Setup ####################
+
+# -----------------------------------------------------------------------------
+# Finalize Setup
+# -----------------------------------------------------------------------------
 sketchybar --hotload true
 sketchybar --update
 
-echo "sketchybar configuration loaded.."
+echo "sketchybar configuration loaded"
