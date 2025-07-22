@@ -31,5 +31,3 @@ dofile(vim.g.base46_cache .. "statusline")
 require "core.options"
 require "core.keymaps"
 require "core.autocmds"
-
-print "happy_coding;)"
