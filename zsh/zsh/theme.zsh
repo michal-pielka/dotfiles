@@ -35,4 +35,4 @@ build_gradient() {
 }
 
 # Set the prompt with the desired colors and format
-PROMPT="%F{red}[$(build_gradient) %F{#C8A2C8}%~%F{red}]%f$ "
+PROMPT="%F{red}%B[%b$(build_gradient) %F{#C8A2C8}%~%B%F{red}]%f%b$ "

@@ -1,14 +1,16 @@
 # Paths and environment variables
 export ZSH="$HOME/.oh-my-zsh"
+
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 export PATH="/opt/gcc-13.1.0/bin:$PATH"
 
-# Neovim colors
+# nvim colors
 export TERM=xterm-256color
 
-# FZF 
+# fzf 
+export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS="
   --height=80%
   --layout=reverse
@@ -22,6 +24,8 @@ export FZF_DEFAULT_OPTS="
   --margin=8%,7%
 "
 
-export FZF_DEFAULT_COMMAND='fd --type f'
+# bat
 export BAT_THEME="gruvbox-dark"
-export EZA_CONFIG_DIR="/Users/michalpielka/.config/eza"
+
+# eza
+export EZA_CONFIG_DIR="$HOME/.config/eza"

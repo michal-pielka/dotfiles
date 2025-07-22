@@ -1,21 +1,15 @@
-# Source ~/.zshrc
 alias reload='source ~/.zshrc'
+alias off='shutdown -h now'
 
-# GitHub Copilot aliases
+# gitHub copilot aliases
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
-
-# Hide/unhide Desktop files
-alias hide='chflags hidden ~/Desktop/*'
-alias unhide='chflags nohidden ~/Desktop/*'
 
 # Common shortcuts
 alias c='clear'
 alias n='nvim'
-alias copy='pbcopy'
 
-# Display images in kitty terminal
-alias kimg='kitty +kitten icat'
+alias ff='fastfetch'
 
 # fd, fzf aliases
 # Basically f='fd | fzf' with option to use flags like -e py, -t f etc.
@@ -38,5 +32,5 @@ nf() {
 }
 
 # eza / ls
-alias ls='eza --git --color=always --group-directories-first --header --sort=name'
+alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
 alias lt='ls --tree'
