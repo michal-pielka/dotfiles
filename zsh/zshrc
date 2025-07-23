@@ -1,4 +1,4 @@
-ZSH_CONFIG_PATH="$HOME/.zsh"
+ZSH_CONFIG_PATH="$HOME/.config/zsh"
 
 source "${ZSH_CONFIG_PATH}/env.zsh"
 source "${ZSH_CONFIG_PATH}/plugins.zsh"
