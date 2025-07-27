@@ -1,0 +1,15 @@
+@define-color background #282828;
+@define-color background-alt #282828;
+@define-color foreground #ebdbb2;
+
+@define-color warning #ffcc00;
+@define-color critical #ff0000;
+@define-color good #888888;
+
+/* Module Colors (All Shades of Grey) */
+@define-color cpu #ebdbb2;
+@define-color memory #a89984;
+@define-color network #a89984;
+@define-color pulseaudio #ebdbb2;
+@define-color battery #a89984;
+@define-color clock #ebdbb2;
