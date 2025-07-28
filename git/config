@@ -1,0 +1,39 @@
+[user]
+    name = Michal Pielka
+    email = mpielka726@gmail.com
+
+[core]
+        editor = nvim
+        pager = delta
+        compression = 9
+        whitespace = error
+
+[interactive]
+        diffFilter = delta --color-only
+
+[delta]
+        navigate = true
+
+[merge]
+        conflictstyle = diff3
+
+[diff]
+        colorMoved = default
+        context = 3
+
+[init]
+        defaultBranch = main
+
+[advice]
+        addEmptyPathspec = false
+        pushNonFastForward = false
+        statusHints = false
+
+[status]
+        showStash = true
+
+[url "git@github.com:"]
+        insteadOf = "gh:"
+
+[color "diff"]
+        commit = cyan
