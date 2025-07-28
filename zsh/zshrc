@@ -6,3 +6,5 @@ source "${ZSH_CONFIG_PATH}/vi_mode_custom.zsh"
 source "${ZSH_CONFIG_PATH}/aliases.zsh"
 source "${ZSH_CONFIG_PATH}/functions.zsh"
 source "${ZSH_CONFIG_PATH}/theme.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
