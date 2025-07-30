@@ -38,9 +38,10 @@ glyph_offset = { x = 0, y = 0 }
 
 [window]
 dynamic_padding = true
-opacity = 0.875
+opacity = 0.90
 blur = true
-padding = { x = 5, y = 5 }
+padding = { x = 3, y = 0 }
+option_as_alt = "Both"
 
 [scrolling]
 history = 10000
