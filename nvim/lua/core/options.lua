@@ -9,6 +9,9 @@ local wo = vim.wo
 wo.relativenumber = true
 wo.number = true
 
+-- Walk on empty characters
+opt.virtualedit = "all"
+
 -- Folding
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
