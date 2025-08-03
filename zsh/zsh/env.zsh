@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS="
   --layout=reverse
   --border
   --preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null'
-  --color=bg+:#23272e,bg:#181c22,spinner:#FB4A34,hl:#b8bb26
+  --color=bg+:#23272e,bg:-1,spinner:#FB4A34,hl:#b8bb26
   --color=fg:#a89984,header:#83a598,info:#458588,pointer:#FB4A34
   --color=marker:#b8bb26,fg+:#ebdbb2,prompt:#FB4A34,hl+:#fabd2f
   --prompt=' '

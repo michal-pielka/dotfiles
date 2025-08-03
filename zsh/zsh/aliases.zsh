@@ -35,5 +35,5 @@ nf() {
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
 alias lt='ls --tree'
 
-# alias for second nvim config - kickstart
- alias nvim-ks='NVIM_APPNAME="nvim-kickstart" nvim'
+# alias for old nvim config
+ alias nvim-old='NVIM_APPNAME="nvim-old" nvim'
