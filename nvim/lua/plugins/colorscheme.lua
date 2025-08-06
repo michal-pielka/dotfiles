@@ -14,7 +14,7 @@ return {
       bold = false,
       overrides = {
         Pmenu = { bg = 'none' },
-        BlinkCmpMenuBorder = { fg = '#928374' }, -- for nvim-cmp, optional
+        BlinkCmpMenuBorder = { fg = '#928374' },
         BlinkCmpDocBorder = { fg = '#928374' },
         BlinkCmpSignatureHelpBorder = { fg = '#928374' },
       },

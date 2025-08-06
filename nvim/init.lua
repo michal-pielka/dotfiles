@@ -7,9 +7,9 @@ vim.g.maplocalleader = ' '
 
 -- Load core modules for settings, keymaps, and autocommands.
 -- These are loaded first to ensure a consistent environment for plugins.
-require 'options'
-require 'keymaps'
-require 'autocmds'
+require 'core/options'
+require 'core/keymaps'
+require 'core/autocmds'
 
 -- =============================================================================
 -- |                             PLUGIN MANAGER                              |
@@ -29,7 +29,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Configure and load plugins using lazy.nvim.
 -- All plugin specifications are in the `lua/custom/plugins/` directory.
 require('lazy').setup({
-  -- All plugins are imported from the `custom.plugins` module.
+  -- All plugins are imported from the `plugins` module.
   { import = 'plugins' },
 }, {
   -- Configure lazy.nvim's UI for a better visual experience.
