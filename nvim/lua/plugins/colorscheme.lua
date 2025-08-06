@@ -1,24 +1,24 @@
 return {
-  'ellisonleao/gruvbox.nvim',
+  'folke/tokyonight.nvim',
   priority = 1000,
   config = function()
-    require('gruvbox').setup {
-      transparent_mode = true,
-      italic = {
-        strings = false,
-        comments = false,
-        operators = false,
-        folds = false,
-        emphasis = false,
+    require('tokyonight').setup({
+      transparent = true,
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+        functions = {},
+        variables = {},
+        sidebars = "transparent",
+        floats = "transparent",
       },
-      bold = false,
-      overrides = {
-        Pmenu = { bg = 'none' },
-        BlinkCmpMenuBorder = { fg = '#928374' },
-        BlinkCmpDocBorder = { fg = '#928374' },
-        BlinkCmpSignatureHelpBorder = { fg = '#928374' },
-      },
-    }
-    vim.cmd.colorscheme 'gruvbox'
+      on_highlights = function(hl, c)
+        hl.Pmenu = { bg = "none" }
+        -- hl.BlinkCmpMenuBorder = { fg = c.border_highlight or "#565f89" }
+        -- hl.BlinkCmpDocBorder = { fg = c.border_highlight or "#565f89" }
+        -- hl.BlinkCmpSignatureHelpBorder = { fg = c.border_highlight or "#565f89" }
+      end,
+    })
+    vim.cmd.colorscheme 'tokyonight'
   end,
 }

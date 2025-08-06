@@ -15,14 +15,21 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
 
 # Terminal Prompt
 build_gradient() {
-  local text="pielka"
+  local text="plk"
   local colors=(
-    "#CF4500"
-    "#FF6500"
-    "#F08500"
-    "#E9BA00"
-    "#EAED32"
-    "#AAED32"
+    # "#CF4500"
+    # "#FF6500"
+    # "#F08500"
+    # "#E9BA00"
+    # "#EAED32"
+    # "#AAED32"
+    # "#2AC3DE"  # blue0
+    "#7DCFFF"  # cyan
+    "#7AA2F7"  # blue2
+    "#BB9AF7"  # purple
+    # "#FF9E64"  # orange
+    # "#9ECE6A"  # green
+
   )
   local output=""
   local color=""
