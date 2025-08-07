@@ -2,10 +2,16 @@ return {
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
-    -- add any options here
+    lsp = {
+      signature = {
+        auto_open = {
+          enabled = false,
+        },
+      },
+    },
   },
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-    }
+  },
 }

@@ -1,5 +1,5 @@
 /* Change this import to switch themes */
-@import "themes/tokyonight.css";
+@import "themes/gruvbox.css";
 
 * {
   font-family: "MesloLGS Nerd Font";

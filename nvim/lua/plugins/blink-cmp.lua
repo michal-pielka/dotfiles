@@ -60,7 +60,7 @@ return {
         auto_show = true,
         auto_show_delay_ms = 300,
         window = {
-          border = 'rounded',
+          border = 'single',
         },
       },
     },
@@ -80,7 +80,7 @@ return {
     signature = {
       enabled = true,
       window = {
-        border = 'double',
+        border = 'single',
       },
     },
   },

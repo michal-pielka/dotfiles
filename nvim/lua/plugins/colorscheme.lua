@@ -1,24 +1,20 @@
 return {
-  'folke/tokyonight.nvim',
+  'sainnhe/gruvbox-material',
   priority = 1000,
   config = function()
-    require('tokyonight').setup({
-      transparent = true,
-      styles = {
-        comments = { italic = false },
-        keywords = { italic = false },
-        functions = {},
-        variables = {},
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-      on_highlights = function(hl, c)
-        hl.Pmenu = { bg = "none" }
-        -- hl.BlinkCmpMenuBorder = { fg = c.border_highlight or "#565f89" }
-        -- hl.BlinkCmpDocBorder = { fg = c.border_highlight or "#565f89" }
-        -- hl.BlinkCmpSignatureHelpBorder = { fg = c.border_highlight or "#565f89" }
-      end,
-    })
-    vim.cmd.colorscheme 'tokyonight'
+    -- Gruvbox Material uses global variables for configuration
+    vim.g.gruvbox_material_enable_italic = 0
+    vim.g.gruvbox_material_transparent_background = 1
+    vim.g.gruvbox_material_disable_italic_comment = 1
+    vim.g.gruvbox_material_better_performance = 1
+    vim.g.gruvbox_material_background = 'soft' -- or 'soft', 'hard'
+
+    -- Set the colorscheme
+    vim.cmd.colorscheme 'gruvbox-material'
+
+    -- Custom highlights
+    vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
+    vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
   end,
 }
