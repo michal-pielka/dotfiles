@@ -26,3 +26,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Map 'jk' quickly in insert mode to <Esc> (normal mode)
 vim.keymap.set('i', 'jk', '<Esc>', { desc = "Quick exit insert mode with 'jk'" })
+
+-- Add centering screen to C-u/C-d
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
