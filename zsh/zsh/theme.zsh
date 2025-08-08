@@ -17,9 +17,9 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
 build_gradient() {
   local text="plk"
   local colors=(
-    "#ebdbb2"  # cyan
-    "#ebdbb2"  # blue2
-    "#ebdbb2"  # purple
+    "#ebdbb2"
+    "#ebdbb2"
+    "#ebdbb2"
 
   )
   local output=""
@@ -34,4 +34,4 @@ build_gradient() {
 
 
 # Set the prompt with the desired colors and format
-PROMPT="%F{red}%B[%b$(build_gradient) %F{#C8A2C8}%~%B%F{red}]%f%b$ "
+PROMPT="%F{red}%B[%b$(build_gradient) %F{magenta}%~%B%F{red}]%f%b$ "
