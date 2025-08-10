@@ -1,6 +1,6 @@
 return {
-  "folke/noice.nvim",
-  event = "VeryLazy",
+  'folke/noice.nvim',
+  event = 'VeryLazy',
   opts = {
     lsp = {
       signature = {
@@ -11,7 +11,7 @@ return {
     },
   },
   dependencies = {
-    "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
+    'MunifTanjim/nui.nvim',
+    'rcarriga/nvim-notify',
   },
 }
