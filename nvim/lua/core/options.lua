@@ -79,3 +79,7 @@ vim.opt.foldlevel = 99 -- Open all folds by default
 
 -- Colors for nvim.notify
 vim.opt.termguicolors = true
+
+-- tabs
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
