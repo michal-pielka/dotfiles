@@ -1,33 +1,54 @@
--- Set leader key
-vim.g.mapleader = " "
+-- =============================================================================
+-- |                           CORE CONFIGURATION                            |
+-- =============================================================================
+-- Set leader key. This must be done before plugins are loaded.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
--- Set cache path for base46 themes
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+-- Load core modules for settings, keymaps, and autocommands.
+-- These are loaded first to ensure a consistent environment for plugins.
+require 'core/options'
+require 'core/keymaps'
+require 'core/autocmds'
 
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
-  local repo = "https://github.com/folke/lazy.nvim.git"
-  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+-- =============================================================================
+-- |                             PLUGIN MANAGER                              |
+-- =============================================================================
+-- Bootstrap lazy.nvim: a modern plugin manager for Neovim.
+-- It will be automatically installed if it's not already present.
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load all plugins from the plugins directory
-require("lazy").setup({
-  {
-    "NvChad/NvChad",
-    lazy = false,
-    branch = "v2.5",
-    import = "nvchad.plugins",
+-- =============================================================================
+-- |                              PLUGIN SETUP                               |
+-- =============================================================================
+-- Configure and load plugins using lazy.nvim.
+-- All plugin specifications are in the `lua/custom/plugins/` directory.
+require('lazy').setup({
+  -- All plugins are imported from the `plugins` module.
+  { import = 'plugins' },
+}, {
+  -- Configure lazy.nvim's UI for a better visual experience.
+  ui = {
+    -- Use Nerd Font icons if available, otherwise fall back to standard characters.
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
+    },
   },
-  { import = "plugins" }, -- This will load all files in lua/plugins/
-}, require "configs.lazy") -- NvChad's recommended lazy.nvim config
-
--- Load theme and statusline
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
-
--- Load custom configurations
-require "core.options"
-require "core.keymaps"
-require "core.autocmds"
+})

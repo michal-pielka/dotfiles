@@ -1,33 +1,11 @@
--- Get the default NvChad autocmds
-require "nvchad.autocmds"
+-- [[ Basic Autocommands ]]
+--  See `:help lua-guide-autocommands`
 
--- Add your own autocmds here
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
--- Autogroup for your custom commands
-local my_cmds = augroup("MyCustomAutocmds", { clear = true })
-
--- Set indentation to 4 spaces for specific filetypes
-autocmd("FileType", {
-  group = my_cmds,
-  pattern = { "c", "cpp", "java", "go" },
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-    vim.opt_local.expandtab = true
-  end,
-})
-
--- Highlight on yank
--- This creates a visual flash on the text you have just yanked.
-autocmd("TextYankPost", {
-  group = my_cmds,
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch", -- The highlight group to use. 'IncSearch' is a good default.
-      timeout = 200,       -- How long the highlight lasts in milliseconds.
-    })
+    vim.hl.on_yank()
   end,
 })

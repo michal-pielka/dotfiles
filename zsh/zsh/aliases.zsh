@@ -16,4 +16,5 @@ alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header
 alias lt='ls --tree'
 
 # alias for old nvim config
+ alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
  alias nvim-old='NVIM_APPNAME="nvim-old" nvim'
