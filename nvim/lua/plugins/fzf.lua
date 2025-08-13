@@ -22,12 +22,16 @@ return {
 		  scrollbar = false,
           layout = 'flex',
           flip_columns = 120,  -- When columns < this, it flips orientation
-          delay = 60,          -- Debounce preview update (ms) while you move
+          delay = 10,          -- Debounce preview update (ms) while you move
           winopts = {
             number = true,     -- Show line numbers in preview
             relativenumber = false,
           },
         },
+
+		treesitter = {
+					enabled = true
+				}
       },
 
       ---------------------------------------------------------------------------
@@ -38,6 +42,8 @@ return {
           ['<C-j>'] = 'down',        -- Move selection down
           ['<C-k>'] = 'up',          -- Move selection up
           ['<C-q>'] = 'toggle-all',  -- Toggle all entries (can then quickfix/send)
+			['<C-d>'] = 'preview-half-page-down',
+			['<C-u>'] = 'preview-half-page-up',
         },
         -- If external fzf binary is used, these apply in its interface
         fzf = {
@@ -183,8 +189,8 @@ return {
     map('<leader>sd', fzf.diagnostics_workspace or fzf.diagnostics, '[S]earch [D]iagnostics')
     map('<leader>sr', fzf.resume, '[S]earch [R]esume last picker')
     map('<leader>s.', fzf.oldfiles, '[S]earch Recent Files ("." repeat)')
-    map('<leader>/', fzf.buffers, 'Find existing buffers')
-    map('<leader><leader>', fzf.blines, 'Fuzzy search in current buffer')
+    map('<leader><leader>', fzf.buffers, 'Find existing buffers')
+    map('<leader>/', fzf.blines, 'Fuzzy search in current buffer')
     map('<leader>s/', live_grep_open_files, '[S]earch [/] in Open Files')
     map('<leader>sn', function()
       fzf.files {

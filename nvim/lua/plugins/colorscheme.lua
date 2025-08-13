@@ -7,7 +7,7 @@ return {
     vim.g.gruvbox_material_transparent_background = 1
     vim.g.gruvbox_material_disable_italic_comment = 1
     vim.g.gruvbox_material_better_performance = 1
-    vim.g.gruvbox_material_background = 'soft' -- or 'soft', 'hard'
+    vim.g.gruvbox_material_background = 'hard' -- or 'soft', 'hard'
 
     -- Set the colorscheme
     vim.cmd.colorscheme 'gruvbox-material'
