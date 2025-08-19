@@ -13,18 +13,16 @@ export TERM=xterm-256color
 
 # fzf 
 export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_DEFAULT_OPTS="
-  --height=80%
-  --layout=reverse
-  --border
-  --preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null'
-  --color=bg+:#23272e,bg:-1,spinner:#FB4A34,hl:#b8bb26
-  --color=fg:#a89984,header:#83a598,info:#458588,pointer:#FB4A34
-  --color=marker:#b8bb26,fg+:#ebdbb2,prompt:#FB4A34,hl+:#fabd2f
-  --prompt=' '
-  --border
-  --margin=8%,7%
-"
+export FZF_DEFAULT_OPTS='
+  --color=fg:-1,fg+:#f9f5d7,bg:-1,bg+:#262626
+  --color=hl:#ebdbb2,hl+:#f9f5d7,info:#458588,marker:#FB4A34
+  --color=prompt:#fb4a34,spinner:#d79921,pointer:#d79921,header:#87afaf
+  --color=gutter:-1,border:#ebdbb2,label:#aeaeae,query:#f9f5d7
+  --border="sharp" --border-label="" --preview-window="sharp" --margin="5"
+  --prompt=" " --separator=""
+  --scrollbar="" --layout="reverse"
+  --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
+
 
 # bat
 export BAT_THEME="gruvbox-dark"
