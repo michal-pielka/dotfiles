@@ -23,7 +23,6 @@ export FZF_DEFAULT_OPTS='
   --scrollbar="" --layout="reverse"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
 
-
 # bat
 export BAT_THEME="gruvbox-dark"
 
