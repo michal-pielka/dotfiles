@@ -29,6 +29,7 @@ return {
       fzf_opts = {
         ['--layout'] = 'reverse',
         ['--info'] = 'inline',
+		['--margin'] = '1%,1%',
       },
       files = {
         prompt = 'files> ',
