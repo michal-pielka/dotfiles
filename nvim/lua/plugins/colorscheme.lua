@@ -1,20 +1,35 @@
 return {
-  'sainnhe/gruvbox-material',
-  priority = 1000,
-  config = function()
-    -- Gruvbox Material uses global variables for configuration
-    vim.g.gruvbox_material_enable_italic = 0
-    vim.g.gruvbox_material_transparent_background = 1
-    vim.g.gruvbox_material_disable_italic_comment = 1
-    vim.g.gruvbox_material_better_performance = 1
-    vim.g.gruvbox_material_background = 'hard' -- or 'soft', 'hard'
+  -- Keep Vague installed (not applied by default)
+  {
+    'vague2k/vague.nvim',
+    lazy = false,
+    priority = 1000,
+    config = false,
+  },
 
-    -- Set the colorscheme
-    vim.cmd.colorscheme 'gruvbox-material'
-
-    -- Custom highlights
-    vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
-    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
-    vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
-  end,
+  -- Standard Gruvbox with your settings
+  {
+    'ellisonleao/gruvbox.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('gruvbox').setup({
+        contrast = 'hard',
+        transparent_mode = true,
+        terminal_colors = true,
+        bold = false,
+        italic = {
+          strings = false,
+          comments = false,
+          operators = false,
+          folds = false,
+        },
+        overrides = {
+          Pmenu       = { bg = 'NONE' },
+          NormalFloat = { bg = 'NONE' },
+          FloatBorder = { bg = 'NONE' },
+        },
+      })
+    end,
+  },
 }

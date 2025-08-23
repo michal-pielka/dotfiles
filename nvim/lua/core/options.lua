@@ -52,3 +52,6 @@ vim.cmd(":hi statusline guibg=NONE")
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
+
+-- Remove the '~' char on end of buffer
+vim.opt.fillchars:append({ eob = ' ' })

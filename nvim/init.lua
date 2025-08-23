@@ -1,4 +1,4 @@
--- Set leader key. This must be done before plugins are loaded.
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -38,3 +38,5 @@ require("lazy").setup({
 		},
 	},
 })
+
+vim.cmd.colorscheme('gruvbox')
