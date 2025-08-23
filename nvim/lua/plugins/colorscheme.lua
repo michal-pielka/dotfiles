@@ -1,13 +1,15 @@
 return {
-  -- Keep Vague installed (not applied by default)
   {
     'vague2k/vague.nvim',
     lazy = false,
     priority = 1000,
-    config = false,
+	config = function()
+		require('vague').setup({
+			transparent = true,
+		})
+	end
   },
 
-  -- Standard Gruvbox with your settings
   {
     'ellisonleao/gruvbox.nvim',
     lazy = false,
@@ -19,9 +21,9 @@ return {
         terminal_colors = true,
         bold = false,
         italic = {
-          strings = false,
-          comments = false,
-          operators = false,
+          strings = true,
+          comments = true,
+          operators = true,
           folds = false,
         },
         overrides = {
