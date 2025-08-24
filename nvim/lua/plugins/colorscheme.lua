@@ -21,9 +21,9 @@ return {
         terminal_colors = true,
         bold = false,
         italic = {
-          strings = true,
-          comments = true,
-          operators = true,
+          strings = false,
+          comments = false,
+          operators = false,
           folds = false,
         },
         overrides = {
