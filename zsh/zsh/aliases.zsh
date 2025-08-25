@@ -1,20 +1,27 @@
 alias reload='source ~/.zshrc'
 alias off='shutdown -h now'
 
-# gitHub copilot aliases
+# github copilot aliases
 alias ghcs='gh copilot suggest'
 alias ghce='gh copilot explain'
 
-# Common shortcuts
 alias c='clear'
-alias n='nvim'
-
-alias ff='fastfetch'
 
 # eza / ls
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
 alias lt='ls --tree'
 
-# alias for old nvim config
- alias nvim-nvchad='NVIM_APPNAME="nvim-nvchad" nvim'
- alias nvim-old='NVIM_APPNAME="nvim-old" nvim'
+# nvim
+alias n='nvim'
+alias nf='nvim_fzf'
+alias ng='nvim_grep'
+
+alias f='fd_fzf'
+
+# aliases for scripts that sync clipboard with iphone
+alias icopy="get_clipboard.sh"
+alias ipaste="put_clipboard.sh"
+
+# directory aliases
+alias cdf='cd_fzf'
+alias dot='cd $DOTFILES_PATH'
