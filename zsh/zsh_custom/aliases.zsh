@@ -1,4 +1,4 @@
-alias reload='source ~/.zshrc'
+alias reload='source $HOME/.zshrc'
 alias off='shutdown -h now'
 
 # github copilot aliases

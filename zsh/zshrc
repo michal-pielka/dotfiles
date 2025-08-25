@@ -1,5 +1,5 @@
-export DOTFILES_PATH="$HOME/dotfiles"
-ZSH_CONFIG_PATH="$HOME/.config/zsh"
+DOTFILES_PATH="$HOME/.dotfiles"
+ZSH_CONFIG_PATH="$DOTFILES_PATH/zsh/zsh_custom"
 
 source "${ZSH_CONFIG_PATH}/env.zsh"
 source "${ZSH_CONFIG_PATH}/plugins.zsh"
