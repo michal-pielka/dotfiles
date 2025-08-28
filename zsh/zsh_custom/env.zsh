@@ -22,9 +22,7 @@ export FZF_DEFAULT_OPTS='
   --prompt=" " --separator=""
   --scrollbar="" --layout="reverse"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
+export FZF_CTRL_R_OPTS="--no-preview"
 
 # bat
 export BAT_THEME="gruvbox-dark"
-
-# eza
-export EZA_CONFIG_DIR="$HOME/.config/eza"

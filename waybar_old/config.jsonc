@@ -1,15 +1,13 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 24,
+  "height": 4,
   "margin-top": 5,
   "margin-left": 5,
   "margin-right": 5,
   "modules-left": [
     "memory",
-    "cpu",
-    "load",
-    "temperature"
+    "cpu"
   ],
   "modules-center": [
     "hyprland/workspaces"
@@ -18,40 +16,27 @@
     "battery",
     "pulseaudio",
     "network",
-    "clock",
-    "custom/mouseandmic"
+    "custom/clock"
   ],
-  "clock": {
-      "format": "{:%H:%M on %d.%m}"
-  },
   "cpu": {
     "interval": 1,
     "format": "cpu | {usage}",
     "tooltip-format": "{usage}%",
-  },
-  "load": {
-    "interval": 5,
-    "format": "load | {load1}",
-    "max-length": 20
-  },
-  "temperature": {
-    "interval": 5,
-    "format": "temp | {temperatureC}°C",
-    "max-length": 20,
-    "warning-threshold": 60,
-    "critical-threshold": 80,
+    "on-click": "swaymsg exec gnome-system-monitor"
   },
   "memory": {
     "interval": 1,
-    "format": "mem | {percentage}%",
+    "format": "mem | {}",
     "tooltip-format": "{used}/{total} GiB",
+    "on-click": "swaymsg exec gnome-system-monitor"
   },
   "network": {
-    "format-wifi": "wifi | {essid}",
+    "format-wifi": "wif | {essid}",
     "format-ethernet": "eth | {essid}",
-    "format-disconnected": "wifi | disc",
+    "format-disconnected": "wif | disc",
     "interval": 5,
     "tooltip-format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes}",
+    "on-click": "swaymsg exec gnome-control-center network"
   },
   "network#speed": {
     "format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes}",
@@ -66,8 +51,8 @@
     "interval": 1,
     "states": {
       "good": 80,
-      "warning": 15,
-      "critical": 10
+      "warning": 30,
+      "critical": 20
     },
     "format": "bat | {capacity}",
     "format-charging": "bat | {capacity}",
@@ -75,14 +60,14 @@
     "format-critical": "bat | {capacity}",
     "format-charging-warning": "bat | {capacity}",
     "format-charging-critical": "bat | {capacity}",
-    "format-discharging-critical": "bat | {capacity}",
+    "format-discharging-critical": "bat | {capacity} (critical!!)",
     "tooltip-format": "{time} remaining",
     "tooltip-format-charging": "{time} until full",
     "tooltip-format-discharging": "{time} remaining",
+    "on-click": "swaymsg exec gnome-control-center power"
   },
-  "custom/mouseandmic": {
-    "exec": "~/.config/i3blocks/scripts/mic_and_touchpad.sh",
-    "interval": "once",
-    "signal": 11
+  "custom/clock": {
+    "exec": "~/.config/waybar/scripts/lowercase-clock.sh",
+    "interval": 5
   }
 }

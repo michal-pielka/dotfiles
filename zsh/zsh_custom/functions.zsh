@@ -2,7 +2,7 @@
 # Implements the logic: cd $(fd --type d . | fzf)
 cd_fzf() {
   local dir
-  dir=$(fd --type d . | fzf)
+  dir=$(fd --type d . | fzf --no-preview)
 
   # Only change directory if a selection was made
   if [[ -n "$dir" ]]; then
