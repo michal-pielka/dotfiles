@@ -12,13 +12,6 @@ return {
       group = vim.api.nvim_create_augroup('minimal-lsp-attach', { clear = true }),
       callback = function(event)
 
-		-- DELETE DEFAULTS
-		vim.keymap.del('n', 'grn') -- vim.lsp.buf.rename()
-		vim.keymap.del('n', 'gra') -- vim.lsp.buf.code_action()
-		vim.keymap.del('n', 'grr') -- vim.lsp.buf.references()
-		vim.keymap.del('n', 'gri') -- vim.lsp.buf.implementation()
-		vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
-
 		-- REPLACE DEFAULTS
         map('gd', vim.lsp.buf.definition,        'Go to Definition')
         map('gr', vim.lsp.buf.references,        'Go to References')

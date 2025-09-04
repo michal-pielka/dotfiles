@@ -30,3 +30,15 @@ map('<C-.>', ':bnext<CR>', 'Next buffer')
 
 -- Close buffer
 map('<C-q>', ':bdelete<CR>', 'Delete buffer')
+
+
+-- Unmap LSP defaults - replaced in lspconfig
+local function unmap(mode, lhs)
+  vim.keymap.set(mode, lhs, "<Nop>", { desc = "Disabled" })
+end
+
+unmap('n', 'grn')
+unmap('n', 'gra')
+unmap('n', 'grr')
+unmap('n', 'gri')
+unmap('n', 'grt')
