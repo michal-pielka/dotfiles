@@ -3,7 +3,7 @@ return {
   'folke/which-key.nvim',
   event = 'VimEnter',
   opts = {
-    delay = 1000,
+    delay = 0,
 	preset = "helix",
 	icons = {
 		mappings = false,

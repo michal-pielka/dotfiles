@@ -17,7 +17,7 @@ return {
 		-- vim.keymap.del('n', 'gra') -- vim.lsp.buf.code_action()
 		-- vim.keymap.del('n', 'grr') -- vim.lsp.buf.references()
 		-- vim.keymap.del('n', 'gri') -- vim.lsp.buf.implementation()
-		vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
+		-- vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
 
 		-- REPLACE DEFAULTS
         local function map(lhs, rhs, desc, mode)
