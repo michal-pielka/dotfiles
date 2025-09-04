@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS='
   --color=hl:#ebdbb2,hl+:#f9f5d7,info:#458588,marker:#FB4A34
   --color=prompt:#fb4a34,spinner:#d79921,pointer:#d79921,header:#87afaf
   --color=gutter:-1,border:#ebdbb2,label:#aeaeae,query:#f9f5d7
-  --border="sharp" --border-label="" --preview-window="sharp" --margin="5"
+  --border="sharp" --border-label="" --preview-window="sharp" --margin="5%"
   --prompt=" " --separator=""
   --scrollbar="" --layout="reverse"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
