@@ -73,14 +73,11 @@ return {
     map('<leader>f', fzf.files, 'search files')
     map('<leader>g', fzf.live_grep, 'search grep')
     map('<leader>b', fzf.buffers, 'buffers')
-    map('<leader>/', fzf.blines, 'buffer fuzzy')
-    map('<leader>sh', fzf.help_tags, 'search help')
     map('<leader>sk', fzf.keymaps, 'search keymaps')
     map('<leader>ss', fzf.builtin, 'select pickers')
-    map('<leader>sd', fzf.diagnostics_workspace or fzf.diagnostics, '[s]earch [d]iagnostics')
+    map('<leader>sd', fzf.diagnostics_workspace or fzf.diagnostics, 'search diagnostics')
     map('<leader>sn', function()
       fzf.files { cwd = vim.fn.stdpath('config'), prompt = 'nvim config> ' }
     end, 'config files')
-    map('<leader>e', fzf.marks, 'marks')
   end,
 }

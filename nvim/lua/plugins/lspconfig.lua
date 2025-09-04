@@ -8,10 +8,18 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
-    -- LspAttach: set simple native keymaps (no telescope)
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('minimal-lsp-attach', { clear = true }),
       callback = function(event)
+
+		-- DELETE DEFAULTS
+		-- vim.keymap.del('n', 'grn') -- vim.lsp.buf.rename()
+		-- vim.keymap.del('n', 'gra') -- vim.lsp.buf.code_action()
+		-- vim.keymap.del('n', 'grr') -- vim.lsp.buf.references()
+		-- vim.keymap.del('n', 'gri') -- vim.lsp.buf.implementation()
+		vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
+
+		-- REPLACE DEFAULTS
         local function map(lhs, rhs, desc, mode)
           mode = mode or 'n'
             vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -19,15 +27,16 @@ return {
 
         map('gd', vim.lsp.buf.definition,        'Go to Definition')
         map('gr', vim.lsp.buf.references,        'Go to References')
-        map('gD', vim.lsp.buf.declaration,       'Go to Declaration')
-        map('gi', vim.lsp.buf.implementation,    'Go to Implementation')
-        map('gt', vim.lsp.buf.type_definition,   'Go to Type Definition')
         map('<leader>rn', vim.lsp.buf.rename,    'Rename Symbol')
-        map('<leader>ca', vim.lsp.buf.code_action,'Code Action', { 'n', 'x' })
         map('K',  vim.lsp.buf.hover,             'Hover Docs')
-        map('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+        -- map('gD', vim.lsp.buf.declaration,       'Go to Declaration')
+        -- map('gi', vim.lsp.buf.implementation,    'Go to Implementation')
+        -- map('gt', vim.lsp.buf.type_definition,   'Go to Type Definition')
+        -- map('<leader>ca', vim.lsp.buf.code_action,'Code Action', { 'n', 'x' })
+        -- map('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
 
         -- Diagnostics navigation
+		map('<leader>d', vim.diagnostic.open_float, 'Show Diagnostics')
         map('[d', vim.diagnostic.goto_prev, 'Prev Diagnostic')
         map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
       end,
@@ -49,20 +58,22 @@ return {
     )
 
     -- Define servers (keep only a couple; add more as needed)
-    local servers = {
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = { callSnippet = 'Replace' },
-            diagnostics = { globals = { 'vim' } },
-          },
-        },
-      },
-      -- Add more servers by name (their default settings) if you like:
-      -- pyright = {},
-      -- gopls = {},
-      -- rust_analyzer = {},
-    }
+	local servers = {
+	  lua_ls = {
+		settings = {
+		  Lua = {
+			completion = { callSnippet = 'Replace' },
+			diagnostics = { globals = { 'vim' } },
+		  },
+		},
+	  },
+	  pyright = {},
+	  rust_analyzer = {},
+	  gopls = {},
+	  bashls = {},
+	  ts_ls = {},
+	  -- clangd = {},
+	}
 
     -- Ensure tools/servers installed via mason-tool-installer
     local ensure = vim.tbl_keys(servers)

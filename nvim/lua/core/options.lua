@@ -55,3 +55,6 @@ end)
 
 -- Remove the '~' char on end of buffer
 vim.opt.fillchars:append({ eob = ' ' })
+
+-- Block cursor in insert mode
+vim.opt.guicursor = ""
