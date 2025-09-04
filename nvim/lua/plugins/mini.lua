@@ -38,10 +38,6 @@ return {
 		}
 	})
 
-    local function map(lhs, rhs, desc)
-      vim.keymap.set('n', lhs, rhs, { desc = desc })
-    end
-
 	map('<leader>f', '<CMD>Pick files<CR>', 'Pick: search files')
 	-- map('<leader>F', '<CMD>Pick git_files<CR>', 'Pick: search project files')
 	map('<leader>g', '<CMD>Pick grep_live<CR>', 'Pick: search grep')

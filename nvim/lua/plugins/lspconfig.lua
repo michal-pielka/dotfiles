@@ -13,18 +13,13 @@ return {
       callback = function(event)
 
 		-- DELETE DEFAULTS
-		-- vim.keymap.del('n', 'grn') -- vim.lsp.buf.rename()
-		-- vim.keymap.del('n', 'gra') -- vim.lsp.buf.code_action()
-		-- vim.keymap.del('n', 'grr') -- vim.lsp.buf.references()
-		-- vim.keymap.del('n', 'gri') -- vim.lsp.buf.implementation()
-		-- vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
+		vim.keymap.del('n', 'grn') -- vim.lsp.buf.rename()
+		vim.keymap.del('n', 'gra') -- vim.lsp.buf.code_action()
+		vim.keymap.del('n', 'grr') -- vim.lsp.buf.references()
+		vim.keymap.del('n', 'gri') -- vim.lsp.buf.implementation()
+		vim.keymap.del('n', 'grt') -- vim.lsp.buf.type_definition()
 
 		-- REPLACE DEFAULTS
-        local function map(lhs, rhs, desc, mode)
-          mode = mode or 'n'
-            vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = 'LSP: ' .. desc })
-        end
-
         map('gd', vim.lsp.buf.definition,        'Go to Definition')
         map('gr', vim.lsp.buf.references,        'Go to References')
         map('<leader>rn', vim.lsp.buf.rename,    'Rename Symbol')

@@ -67,10 +67,6 @@ return {
       },
     }
 
-    local function map(lhs, rhs, desc)
-      vim.keymap.set('n', lhs, rhs, { desc = desc })
-    end
-
     map('<leader>F', fzf.git_files, 'search project files')
     map('<leader>f', fzf.files, 'search files')
     map('<leader>g', fzf.live_grep, 'search grep')

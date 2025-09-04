@@ -1,27 +1,32 @@
+-- Global keymap helper
+function _G.map(lhs, rhs, desc)
+  vim.keymap.set('n', lhs, rhs, { desc = desc })
+end
+
 -- Writing and quitting
-vim.keymap.set('n', '<leader>w', '<CMD>write<CR>')
-vim.keymap.set('n', '<leader>q', '<CMD>quit<CR>')
+map('<leader>w', '<CMD>write<CR>', 'Write')
+map('<leader>q', '<CMD>quit<CR>', 'Quit')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('<Esc>', '<cmd>nohlsearch<CR>', 'Clear search highlights')
 
 -- Switch to normal mode using jk/kj
-vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 
 -- Center screen when going half a page up/down
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+map('<C-d>', '<C-d>zz', 'Half page down & center')
+map('<C-u>', '<C-u>zz', 'Half page up & center')
 
--- Make split navigation easier.
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- Make split navigation easier
+map('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
+map('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
+map('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
+map('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Buffer navigation
-vim.keymap.set("n", "<C-,>", ":bprevious<CR>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<C-.>", ":bnext<CR>", { desc = "Next buffer" })
+map('<C-,>', ':bprevious<CR>', 'Previous buffer')
+map('<C-.>', ':bnext<CR>', 'Next buffer')
 
 -- Close buffer
-vim.keymap.set("n", "<C-q>", ":bdelete<CR>", { desc = "Delete buffer" })
+map('<C-q>', ':bdelete<CR>', 'Delete buffer')
