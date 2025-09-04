@@ -4,6 +4,7 @@ return {
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
+  enabled=false,
   config = function()
     local fzf = require('fzf-lua')
 
@@ -70,6 +71,7 @@ return {
       vim.keymap.set('n', lhs, rhs, { desc = desc })
     end
 
+    map('<leader>F', fzf.git_files, 'search project files')
     map('<leader>f', fzf.files, 'search files')
     map('<leader>g', fzf.live_grep, 'search grep')
     map('<leader>b', fzf.buffers, 'buffers')

@@ -9,8 +9,7 @@ return {
     })
 
     -- mini.pairs — lightweight autopairs
-    require('mini.pairs').setup({
-    })
+    require('mini.pairs').setup({})
 
     -- mini.jump — enhanced f/F/t/T with consistent ; and , repeats
     require('mini.jump').setup({
@@ -22,5 +21,35 @@ return {
       use_icons = vim.g.have_nerd_font == true, -- Set this global elsewhere if you have Nerd Font
       set_vim_settings = true,                  -- Apply recommended statusline options
     })
+
+    -- mini.pick + mini.extra — lightweight fuzzy picker
+    require('mini.extra').setup()
+    require('mini.pick').setup({
+		mappings = {
+			move_down = '<C-j>',
+			move_up = '<C-k>',
+			move_start = '<C-g>',
+			scroll_up = '<C-u>',
+			scroll_down = '<C-d>',
+		},
+		options = {
+			use_cache = true,
+
+		}
+	})
+
+    local function map(lhs, rhs, desc)
+      vim.keymap.set('n', lhs, rhs, { desc = desc })
+    end
+
+	map('<leader>f', '<CMD>Pick files<CR>', 'Pick: search files')
+	-- map('<leader>F', '<CMD>Pick git_files<CR>', 'Pick: search project files')
+	map('<leader>g', '<CMD>Pick grep_live<CR>', 'Pick: search grep')
+	map('<leader>b', '<CMD>Pick buffers<CR>', 'Pick: search buffers')
+
+	map('<leader>sc', '<CMD>Pick colorschemes<CR>', 'Pick: search colorschemes')
+	map('<leader>sd', '<CMD>Pick diagnostic<CR>', 'Pick: search diagnostics')
+	map('<leader>sh', '<CMD>Pick help<CR>', 'Pick: search help')
+	map('<leader>sk', '<CMD>Pick keymaps<CR>', 'Pick: search keymaps')
   end,
 }
