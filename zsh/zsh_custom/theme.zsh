@@ -1,7 +1,12 @@
-# zsh-syntax-highlighting color variables
-COLOR_GREEN="#AAED32"
-COLOR_LILAC="#C8A2C8"
-COLOR_ORANGE="#FFA500"
+# Gruvbox colors
+COLOR_GREEN="#b8bb26"
+COLOR_LILAC="#d3869b"
+COLOR_ORANGE="#fe8019"
+COLOR_RED="#fb4934"
+COLOR_YELLOW="#fabd2f"
+COLOR_BLUE="#83a598"
+COLOR_FG="#ebdbb2"
+COLOR_BG="#282828"
 
 # zsh-syntax-highlighting styles
 ZSH_HIGHLIGHT_STYLES[command]="fg=${COLOR_GREEN}"
@@ -17,21 +22,19 @@ ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
 build_gradient() {
   local text="plk"
   local colors=(
-    "#ebdbb2"
-    "#ebdbb2"
-    "#ebdbb2"
-
+    "$COLOR_YELLOW"
+    "$COLOR_ORANGE"
+    "$COLOR_RED"
   )
   local output=""
   local color=""
+  local idx=0
   for (( i=0; i<${#text}; i++ )); do
-    # Use modulus to loop through colors array without blank entries
-    color=${colors[$((i + 1 % ${#colors[@]}))]}
+    idx=$(( (i % ${#colors[@]}) + 1 ))   # fix index: zsh arrays are 1-based
+    color=${colors[$idx]}
     output+="%F{$color}${text:$i:1}"
   done
-  echo -n "$output%f"  # Reset the formatting at the end
+  echo -n "$output%f"
 }
 
-
-# Set the prompt with the desired colors and format
-PROMPT="%F{red}%B[%b$(build_gradient) %F{magenta}%~%B%F{red}]%f%b$ "
+PROMPT="%F{$COLOR_FG}%B[%b%F{$COLOR_FG}plk %F{$COLOR_ORANGE)}%~%B%F{$COLOR_FG}]%f%b$ "
