@@ -3,7 +3,7 @@
 get_ascii_art() {
     local volume_int="$1"
 
-    local empty_char="⠐"
+    local empty_char="⠀"
     local fill_char="⠿"
     local bar=""
 

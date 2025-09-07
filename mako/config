@@ -16,3 +16,9 @@ anchor=center
 text-alignment=center
 width=178
 height=188
+
+[app-name="brightness_script"]
+anchor=center
+text-alignment=center
+width=178
+height=188
