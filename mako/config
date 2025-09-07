@@ -1,2 +1,18 @@
-font=JetBrainsMono Nerd Font
-background-color=#ebdbb277
+font=JetBrainsMono Nerd Font 10
+
+text-color=#ebdbb2ff
+background-color=#282828a7
+
+border-radius=7
+border-size=2
+border-color=#ebdbb2ff
+
+margin=14
+
+default-timeout=5000
+
+[app-name="volume_script"]
+anchor=center
+text-alignment=center
+width=178
+height=188
