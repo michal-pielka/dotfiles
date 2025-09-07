@@ -37,4 +37,4 @@ build_gradient() {
   echo -n "$output%f"
 }
 
-PROMPT="%F{$COLOR_FG}%B[%b%F{$COLOR_FG}plk %F{$COLOR_ORANGE)}%~%B%F{$COLOR_FG}]%f%b$ "
+PROMPT="%F{$COLOR_FG}%B[%b%F %F{$COLOR_RED)}%~ %B%F{$COLOR_FG}]%f$%b "
