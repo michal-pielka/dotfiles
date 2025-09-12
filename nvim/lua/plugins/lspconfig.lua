@@ -12,10 +12,9 @@ return {
       group = vim.api.nvim_create_augroup('minimal-lsp-attach', { clear = true }),
       callback = function(event)
 
-		-- REPLACE DEFAULTS
         map('gd', vim.lsp.buf.definition,        'Go to Definition')
-        map('gr', vim.lsp.buf.references,        'Go to References')
-        map('<leader>rn', vim.lsp.buf.rename,    'Rename Symbol')
+        map('grr', vim.lsp.buf.references,        'Go to References')
+        map('grn', vim.lsp.buf.rename,    'Rename Symbol')
         map('K',  vim.lsp.buf.hover,             'Hover Docs')
         -- map('gD', vim.lsp.buf.declaration,       'Go to Declaration')
         -- map('gi', vim.lsp.buf.implementation,    'Go to Implementation')
