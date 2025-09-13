@@ -22,6 +22,12 @@ return {
       set_vim_settings = true,                  -- Apply recommended statusline options
     })
 
+	-- mini.files — file explorer, replacement for oil
+	require('mini.files').setup({})
+
+	-- mini.diff — show git diff columns
+	require('mini.diff').setup({})
+
     -- mini.pick + mini.extra — lightweight fuzzy picker
     require('mini.extra').setup()
     require('mini.pick').setup({
