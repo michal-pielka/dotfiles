@@ -19,7 +19,7 @@ export FZF_DEFAULT_OPTS='
   --color=prompt:#fb4a34,spinner:#d79921,pointer:#d79921,header:#87afaf
   --color=gutter:-1,border:#ebdbb2,label:#aeaeae,query:#f9f5d7
   --border="sharp" --border-label="" --preview-window="sharp" --margin="5%"
-  --prompt=" " --separator=""
+  --height=65% --prompt=" " --separator=""
   --scrollbar="" --layout="reverse"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
 export FZF_CTRL_R_OPTS="--no-preview"
