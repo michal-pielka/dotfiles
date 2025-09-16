@@ -27,7 +27,16 @@ return {
     -- mini.pick + mini.extra — lightweight fuzzy picker
     require('custom.mini_pickers').setup_registry() -- my custom pickers
     require('mini.extra').setup()
-    require('mini.pick').setup({
+    local pick = require('mini.pick')
+	pick.setup({
+		source = {
+			show = pick.default_show,
+		},
+		window = {
+			config = {
+				width = math.floor(0.388 * vim.o.columns),
+			},
+		},
 		mappings = {
 			move_down = '<C-j>',
 			move_up = '<C-k>',
@@ -37,7 +46,6 @@ return {
 		},
 		options = {
 			use_cache = true,
-
 		}
 	})
 
