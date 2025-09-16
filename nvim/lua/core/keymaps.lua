@@ -25,8 +25,8 @@ map('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 map('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Buffer navigation
-map('<C-,>', ':bprevious<CR>', 'Previous buffer')
-map('<C-.>', ':bnext<CR>', 'Next buffer')
+map('<Tab>', ':bnext<CR>', 'Next buffer')
+map('<S-Tab>', ':bprevious<CR>', 'Previous buffer')
 
 -- Close buffer
 map('<C-q>', ':bdelete<CR>', 'Delete buffer')
