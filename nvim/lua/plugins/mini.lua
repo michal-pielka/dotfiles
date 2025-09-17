@@ -32,11 +32,6 @@ return {
 		source = {
 			show = pick.default_show,
 		},
-		window = {
-			config = {
-				width = math.floor(0.388 * vim.o.columns),
-			},
-		},
 		mappings = {
 			move_down = '<C-j>',
 			move_up = '<C-k>',
