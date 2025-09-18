@@ -15,8 +15,8 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 
 -- Center screen when going half a page up/down
-map('<C-d>', '<C-d>zz', 'Half page down & center')
-map('<C-u>', '<C-u>zz', 'Half page up & center')
+-- map('<C-d>', '<C-d>zz', 'Half page down & center')
+-- map('<C-u>', '<C-u>zz', 'Half page up & center')
 
 -- Make split navigation easier
 map('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
