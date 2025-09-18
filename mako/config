@@ -16,7 +16,10 @@ width=178
 height=188
 
 [app-name="brightness_script"]
+padding=5
+border-radius=11
+border-size=1
 anchor=center
 text-alignment=center
-width=178
+width=188
 height=188
