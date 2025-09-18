@@ -16,10 +16,36 @@ return {
     })
 
     -- mini.statusline — simple, fast statusline
-    require('mini.statusline').setup({
-      use_icons = vim.g.have_nerd_font == true, -- Set this global elsewhere if you have Nerd Font
-      set_vim_settings = true,                  -- Apply recommended statusline options
-    })
+	require('mini.statusline').setup({
+		content = {
+			active = function()
+				local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+				local git           = MiniStatusline.section_git({ trunc_width = 40 })
+				local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
+				local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+				local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+				local location      = MiniStatusline.section_location({ trunc_width = 75 })
+
+				return MiniStatusline.combine_groups({
+					{ hl = mode_hl,                 strings = { mode } },
+					{ hl = 'Pmenu', strings = { git, diff, diagnostics } },
+					'%<',        -- general truncate point
+					{ hl = 'Pmenu', strings = { filename } },
+					'%=',        -- start right-aligned area
+					{ hl = mode_hl,                 strings = { location } },
+				})
+			end,
+
+			inactive = function()
+				local filename = MiniStatusline.section_filename({ trunc_width = 120 })
+				return MiniStatusline.combine_groups({
+					'%=', -- center the filename for inactive windows too
+					{ hl = 'MiniStatuslineFilename', strings = { filename } },
+					'%=',
+				})
+			end,
+		},
+	})
 
 	-- mini.diff — show git diff columns
 	require('mini.diff').setup({})
