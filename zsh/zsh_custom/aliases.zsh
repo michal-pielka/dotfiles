@@ -25,3 +25,4 @@ alias ipaste="put_clipboard.sh"
 # directory aliases
 alias cdf='cd_fzf'
 alias dot='cd $DOTFILES_PATH'
+alias cdl='cd_into_last_dir'

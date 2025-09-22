@@ -51,3 +51,12 @@ nvim_grep() {
     nvim "$file"
   fi
 }
+
+# Meant to be used with chpwd ZSH hook.
+function cd_into_last_dir() {
+    if [[ -f /tmp/last_cd_dir_$USER ]]; then
+        cd "$(cat /tmp/last_cd_dir_$USER)"
+    else
+        echo "No last directory recorded."
+    fi
+}
