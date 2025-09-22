@@ -25,8 +25,12 @@ map('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 map('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Buffer navigation
-map('<Tab>', ':bnext<CR>', 'Next buffer')
-map('<S-Tab>', ':bprevious<CR>', 'Previous buffer')
+map('>', ':bnext<CR>', 'Next buffer')
+map('<', ':bprevious<CR>', 'Previous buffer')
 
 -- Close buffer
 map('<C-q>', ':bdelete<CR>', 'Delete buffer')
+
+vim.keymap.set("n", "<leader>td", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle LSP diagnostics (global)" })
