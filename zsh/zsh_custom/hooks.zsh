@@ -1,3 +1,3 @@
 function chpwd() {
-	echo "$PWD" > /tmp/last_cd_dir_$USER
+	echo "$PWD" > $XDG_RUNTIME_DIR/last_cd_dir_$USER
 }
