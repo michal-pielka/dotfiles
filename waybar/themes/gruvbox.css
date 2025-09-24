@@ -5,9 +5,9 @@
 @define-color foreground-alt       #ebdbb2;
 
 @define-color mainfg               #504945;
-@define-color warning              #ffae42;
-@define-color critical             #ff0000;
-@define-color good                 #329932;
-@define-color urgent               #efbf2f;
+@define-color warning              #fabd2f;
+@define-color critical             #fb4934;
+@define-color good                 #b8bb26;
+@define-color urgent               #fabd2f;
 
 @define-color bg-workspace-visible #504945;
