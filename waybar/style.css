@@ -22,7 +22,7 @@ window#waybar {
 #network,
 #pulseaudio,
 #battery,
-#custom-mouseandmic,
+#custom-recording,
 #clock {
   padding: 0px 4px;
   margin: 3px;
@@ -34,10 +34,6 @@ window#waybar {
 
 #memory {
   margin-left: 2px;
-}
-
-#custom-mouseandmic {
-  margin-right: 0px;
 }
 
 #workspaces {
@@ -97,7 +93,7 @@ window#waybar {
 #temperature,
 #pulseaudio,
 #battery,
-#custom-mouseandmic,
+#custom-recording,
 #clock {
   color: @foreground-alt;
   border: 2px solid @mainfg;
@@ -149,4 +145,8 @@ window#waybar {
 
 #clock {
   margin-right: 2px;
+}
+
+#custom-recording {
+	color: @critical;
 }

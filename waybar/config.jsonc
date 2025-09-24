@@ -15,11 +15,11 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "custom/recording",
     "battery",
     "pulseaudio",
     "network",
     "clock",
-    "custom/mouseandmic"
   ],
   "clock": {
       "format": "{:%H:%M on %d.%m}"
@@ -80,9 +80,10 @@
     "tooltip-format-charging": "{time} until full",
     "tooltip-format-discharging": "{time} remaining",
   },
-  "custom/mouseandmic": {
-    "exec": "~/.config/i3blocks/scripts/mic_and_touchpad.sh",
-    "interval": "once",
-    "signal": 11
+  "custom/recording": {
+	  "exec": "~/.config/waybar/scripts/recording_status.sh",
+	  "return-type": "json",
+	  "interval": "once",
+	  "signal": 8
   }
 }

@@ -1,12 +1,18 @@
-OUTPUT="$HOME/videos/screen_recordings/$(date +%s).mp4"
+SIG=8
+STATE="$XDG_RUNTIME_DIR/wf_recording.state"
+DIR="$HOME/videos/screen_recordings"
+mkdir -p "$DIR"
 
-# Check if wf-recorder is running
-if pgrep -x wf-recorder > /dev/null; then
-    # Stop recording
-    pkill -INT wf-recorder
-    notify-send "Recording" "Saved: $OUTPUT"
+if [[ -f $STATE ]]; then
+	# Stop recording
+	source "$STATE"
+	pkill -INT -x wf-recorder 2>/dev/null
+	rm -f "$STATE"
 else
-    # Start recording
-    wf-recorder -g "$(slurp)" -f "$OUTPUT" &
-    notify-send "Recording"
+	# Start recording
+	FILE="$DIR/$(date +%d_%m_%H_%M_%S).mp4"
+	wf-recorder -g "$(slurp)" -f "$FILE" &
+	echo "PID=$!" >"$STATE"; echo "FILE=$FILE" >>"$STATE"
 fi
+
+pkill -RTMIN+${SIG} waybar 2>/dev/null || true
