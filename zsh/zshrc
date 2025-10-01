@@ -1,6 +1,7 @@
 export DOTFILES_PATH="$HOME/.dotfiles"
 export ZSH_CONFIG_PATH="$DOTFILES_PATH/zsh/zsh_custom"
 
+source "${DOTFILES_PATH}/zsh/private.env"
 source "${ZSH_CONFIG_PATH}/env.zsh"
 source "${ZSH_CONFIG_PATH}/plugins.zsh"
 source "${ZSH_CONFIG_PATH}/vi_mode_custom.zsh"
@@ -8,6 +9,5 @@ source "${ZSH_CONFIG_PATH}/aliases.zsh"
 source "${ZSH_CONFIG_PATH}/functions.zsh"
 source "${ZSH_CONFIG_PATH}/theme.zsh"
 source "${ZSH_CONFIG_PATH}/hooks.zsh"
-source "${ZSH_CONFIG_PATH}/private.env"
 
 source <(fzf --zsh)
