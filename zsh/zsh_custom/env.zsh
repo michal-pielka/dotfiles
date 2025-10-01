@@ -7,6 +7,7 @@ export PATH="/opt/gcc-13.1.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$DOTFILES_PATH/scripts:$PATH"
 
 # nvim colors
 export TERM=xterm-256color
@@ -27,3 +28,6 @@ export FZF_CTRL_R_OPTS="--no-preview"
 
 # bat
 export BAT_THEME="gruvbox-dark"
+
+# general
+export EDITOR=nvim
