@@ -1,9 +1,8 @@
-text-color=#ebdbb2ff
-background-color=#282828a7
+# Include the theme
+include=/home/michalpielka/.config/mako/theme.conf
 
 border-radius=7
 border-size=2
-border-color=#ebdbb2ff
 
 margin=14
 

@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+DOTFILES_PATH="${DOTFILES_PATH:-$HOME/.dotfiles}"
+THEMES_DIR="$DOTFILES_PATH/themes"
+CURRENT_LINK="$THEMES_DIR/current"
+
+usage() {
+  cat <<EOF
+Usage: $(basename "$0") <theme-name>
+
+If no theme-name is provided, you'll be prompted with fzf to pick one.
+Options:
+  -h, --help    Show this help and list available themes
+
+Available themes:
+EOF
+  ls -1 "$THEMES_DIR" | grep -v '^current$' || echo "  (none found)"
+}
+
+# simple help handling
+if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
+  usage
+  exit 0
+fi
+
+# argument count check
+if [ "$#" -gt 1 ]; then
+  usage
+  exit 1
+fi
+
+# pick theme: argument or fzf
+if [ "$#" -eq 1 ]; then
+  THEME_NAME="$1"
+else
+  if ! command -v fzf >/dev/null 2>&1; then
+    echo "error: no argument provided and fzf not found."
+    usage
+    exit 1
+  fi
+  THEME_NAME="$(ls -1 "$THEMES_DIR" | grep -v '^current$' | fzf --prompt="Select theme: ")"
+  if [ -z "${THEME_NAME:-}" ]; then
+    echo "no theme selected, aborting."
+    exit 1
+  fi
+fi
+
+THEME_DIR="$THEMES_DIR/$THEME_NAME"
+
+# verify theme directory exists
+if [ ! -d "$THEME_DIR" ]; then
+  echo "error: theme '$THEME_NAME' not found in $THEMES_DIR"
+  exit 1
+fi
+
+# update symlink
+ln -sfn "$THEME_DIR" "$CURRENT_LINK"
+echo "switched theme -> $THEME_NAME"
+
+# reload apps (unchanged)
+hyprctl reload >/dev/null 2>&1 &
+pkill -x waybar 2>/dev/null; waybar >/dev/null 2>&1 &
+pkill zsh
+
+# TODO: find a way to kill foot server

@@ -1,0 +1,13 @@
+/* Ayu Theme */
+@define-color background           #e6e1cf;
+@define-color background-alt       #0f1419;
+@define-color foreground           #3a3f4b;
+@define-color foreground-alt       #e6e1cf;
+
+@define-color mainfg               #3a3f4b;
+@define-color warning              #ffb454;
+@define-color critical             #f07178;
+@define-color good                 #b8cc52;
+@define-color urgent               #ffb454;
+
+@define-color bg-workspace-visible #3a3f4b;

@@ -1,0 +1,21 @@
+# Gruvbox colors
+COLOR_GREEN="#b8bb26"
+COLOR_LILAC="#d3869b"
+COLOR_ORANGE="#fe8019"
+COLOR_RED="#fb4934"
+COLOR_YELLOW="#fabd2f"
+COLOR_BLUE="#83a598"
+COLOR_FG="#ebdbb2"
+COLOR_BG="#282828"
+
+# zsh-syntax-highlighting styles
+ZSH_HIGHLIGHT_STYLES[command]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[error]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[path]="fg=${COLOR_LILAC}"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[function]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
+
+PROMPT="%F{$COLOR_FG}%B[%b%F %F{$COLOR_RED)}%~ %B%F{$COLOR_FG}]%f$%b "
