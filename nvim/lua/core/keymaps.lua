@@ -14,10 +14,6 @@ map('<Esc>', '<cmd>nohlsearch<CR>', 'Clear search highlights')
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 
--- Center screen when going half a page up/down
--- map('<C-d>', '<C-d>zz', 'Half page down & center')
--- map('<C-u>', '<C-u>zz', 'Half page up & center')
-
 -- Make split navigation easier
 map('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
 map('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
@@ -34,3 +30,9 @@ map('<C-q>', ':bdelete<CR>', 'Delete buffer')
 vim.keymap.set("n", "<leader>td", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle LSP diagnostics (global)" })
+
+-- Switch to previous buffer - basically a remap to <C-6>
+map('<leader>r', '<CMD>e #<CR>', 'Alternate buffers')
+
+map('H', '^', 'Go to line beginning')
+map('L', '$', 'Go to line ending')
