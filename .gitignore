@@ -1,2 +1,13 @@
 nvim/lazy-lock.json
 private.env
+
+# ignore the per-machine "current" symlink and per-app symlinks
+themes/current
+eza/theme.yml
+foot/theme.ini
+fuzzel/theme.ini
+hypr/modules/theme.conf
+mako/theme.conf
+nvim/lua/plugins/colorscheme.lua
+waybar/theme.css
+zsh/zsh_custom/theme.zsh
