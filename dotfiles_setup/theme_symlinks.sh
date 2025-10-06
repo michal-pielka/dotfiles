@@ -1,3 +1,8 @@
+# ensure themes/current exists; default to "gruvbox"
+DEFAULT_THEME="gruvbox"
+CURRENT_LINK="$DOTFILES_PATH/themes/current"
+[ -e "$CURRENT_LINK" ] || ln -sfn "$DOTFILES_PATH/themes/$DEFAULT_THEME" "$CURRENT_LINK"
+
 pairs=(
   "zsh.zsh $DOTFILES_PATH/zsh/zsh_custom/theme.zsh"
   "eza.yml $DOTFILES_PATH/eza/theme.yml"
