@@ -1,0 +1,13 @@
+/* One Dark Pro Theme */
+@define-color background           #abb2bf;
+@define-color background-alt       #282c34;
+@define-color foreground           #3e4451;
+@define-color foreground-alt       #abb2bf;
+
+@define-color mainfg               #3e4451;
+@define-color warning              #e5c07b;
+@define-color critical             #e06c75;
+@define-color good                 #98c379;
+@define-color urgent               #e5c07b;
+
+@define-color bg-workspace-visible #3e4451;

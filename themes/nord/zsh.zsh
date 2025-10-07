@@ -1,0 +1,21 @@
+# Nord colors
+COLOR_GREEN="#a3be8c"
+COLOR_LILAC="#b48ead"
+COLOR_ORANGE="#d08770"
+COLOR_RED="#bf616a"
+COLOR_YELLOW="#ebcb8b"
+COLOR_BLUE="#81a1c1"
+COLOR_FG="#e5e9f0"
+COLOR_BG="#2e3440"
+
+# zsh-syntax-highlighting styles
+ZSH_HIGHLIGHT_STYLES[command]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[error]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[path]="fg=${COLOR_LILAC}"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[function]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
+
+PROMPT="%F{$COLOR_FG}%B[%b%F %F{$COLOR_RED)}%~ %B%F{$COLOR_FG}]%f$%b "

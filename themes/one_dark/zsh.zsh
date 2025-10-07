@@ -1,0 +1,21 @@
+# One Dark Pro colors
+COLOR_GREEN="#98c379"
+COLOR_LILAC="#c678dd"
+COLOR_ORANGE="#d19a66"
+COLOR_RED="#e06c75"
+COLOR_YELLOW="#e5c07b"
+COLOR_BLUE="#61afef"
+COLOR_FG="#abb2bf"
+COLOR_BG="#282c34"
+
+# zsh-syntax-highlighting styles
+ZSH_HIGHLIGHT_STYLES[command]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[error]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[path]="fg=${COLOR_LILAC}"
+ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=${COLOR_ORANGE}"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[function]="fg=${COLOR_GREEN}"
+ZSH_HIGHLIGHT_STYLES[reserved-word]="fg=${COLOR_GREEN}"
+
+PROMPT="%F{$COLOR_FG}%B[%b%F %F{$COLOR_RED)}%~ %B%F{$COLOR_FG}]%f$%b "
