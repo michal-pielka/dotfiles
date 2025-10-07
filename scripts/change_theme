@@ -62,6 +62,7 @@ echo "switched theme -> $THEME_NAME"
 # reload apps (unchanged)
 hyprctl reload >/dev/null 2>&1 &
 pkill -x waybar 2>/dev/null; waybar >/dev/null 2>&1 &
+pkill -x mako 2>/dev/null; mako >/dev/null 2>&1 &
 pkill zsh
 
 # TODO: find a way to kill foot server
