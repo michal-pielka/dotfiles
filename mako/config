@@ -1,14 +1,13 @@
 # Include the theme
 include=/home/michalpielka/.config/mako/theme.conf
 
-border-radius=7
 border-size=2
-
 margin=14
 
 default-timeout=5000
 
 [app-name="volume_script"]
+border-radius=7
 font=monospace 10
 border-size=1
 anchor=center
@@ -17,6 +16,7 @@ width=178
 height=188
 
 [app-name="brightness_script"]
+border-radius=7
 font=monospace 10
 border-size=1
 anchor=center
