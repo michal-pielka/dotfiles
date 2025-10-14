@@ -6,20 +6,11 @@ margin=14
 
 default-timeout=5000
 
-[app-name="volume_script"]
+[app-name="media-osd"]
 border-radius=7
-font=monospace 10
+font=Monospace 10
 border-size=1
 anchor=center
 text-alignment=center
-width=178
-height=188
-
-[app-name="brightness_script"]
-border-radius=7
-font=monospace 10
-border-size=1
-anchor=center
-text-alignment=center
-width=178
-height=188
+width=172
+height=168 
