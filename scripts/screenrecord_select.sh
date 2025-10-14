@@ -3,7 +3,7 @@ STATE="$XDG_RUNTIME_DIR/wf_recording.state"
 DIR="$HOME/videos/screen_recordings"
 mkdir -p "$DIR"
 
-if [[ -f $STATE ]]; then
+if [ -f $STATE ]; then
 	# Stop recording
 	source "$STATE"
 	pkill -INT -x wf-recorder 2>/dev/null
