@@ -1,3 +1,5 @@
+# dotfiles — handcrafted configs for questionable efficiency.
+
 <p align="center">
   <img src="assets/images/foot_screenshot.png" alt="Foot Terminal Screenshot" width="100%" />
 </p>
