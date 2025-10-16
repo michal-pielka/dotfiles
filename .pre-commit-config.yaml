@@ -10,7 +10,7 @@ repos:
       - id: needs-prefix
         name: commit message needs to have a prefix
         language: pygrep
-        entry: '^(chore|ci|junk|test|feat|fix|build|docs|refactor)!?(\([a-z]+\))?: (?![A-Z])(?![a-z]+(ed|ing)\s).*$'
+        entry: '^(chore|ci|style|test|feat|fix|build|docs|refactor)!?(\([a-z]+\))?: (?![A-Z])(?![a-z]+(ed|ing)\s).*$'
         args:
           - '--multiline'
           - '--negate'
