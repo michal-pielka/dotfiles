@@ -1,18 +1,14 @@
 # Paths and environment variables
 export ZSH="$HOME/.oh-my-zsh"
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
-export PATH="/opt/gcc-13.1.0/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
 export PATH="$DOTFILES_PATH/scripts:$PATH"
 
 # nvim colors
 export TERM=xterm-256color
 
-# fzf 
+# fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS='
   --color=fg:-1,fg+:#f9f5d7,bg:-1,bg+:#262626
