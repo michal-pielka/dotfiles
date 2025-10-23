@@ -74,6 +74,7 @@ return {
 	map('<leader>f', '<CMD>Pick files<CR>', 'Pick: search files')
 	map('<leader>g', '<CMD>Pick grep_live<CR>', 'Pick: search grep')
 	map('<leader>b', '<CMD>Pick buffers<CR>', 'Pick: search buffers')
+	map('<leader>/', '<CMD>Pick buf_lines<CR>', 'Pick: search buffers')
 
 	map('<leader>sn', '<CMD>Pick dotfiles<CR>', 'Pick: search dotfiles')
 	map('<leader>ss', '<CMD>Pick pickers<CR>', 'Pick: search pickers')
