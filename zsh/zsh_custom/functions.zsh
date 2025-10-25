@@ -63,3 +63,12 @@ fzf_git_switch() {
     git switch "$branch"
   fi
 }
+
+open_file_in_zathura() {
+	if [ "$#" -eq 0 ]; then
+	  return 1
+	fi
+
+  zathura $@ &>/dev/null &
+  disown
+}
