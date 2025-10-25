@@ -26,3 +26,6 @@ alias ipaste="put_clipboard.sh"
 alias cdf='cd_fzf'
 alias dot='cd $DOTFILES_PATH'
 alias cdl='cd_into_last_dir'
+
+# git aliases
+alias shlog='short_log_command_git'
