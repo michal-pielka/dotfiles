@@ -36,3 +36,6 @@ map('<leader>r', '<CMD>e #<CR>', 'Alternate buffers')
 
 map('H', '^', 'Go to line beginning')
 map('L', '$', 'Go to line ending')
+
+-- Easy access to the norm command
+vim.keymap.set({ 'n', 'v' }, '<leader>n', ':norm ', { desc = 'Norm command' })
