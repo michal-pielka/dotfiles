@@ -55,3 +55,11 @@ short_log_command_git() {
   fi
   git --no-pager log --oneline -n "$n" "$@"
 }
+
+fzf_git_switch() {
+  local branch
+  branch=$(git branch --list --color | fzf --ansi --height=~40% | awk '{print $NF}')
+  if [ -n "$branch" ]; then
+    git switch "$branch"
+  fi
+}

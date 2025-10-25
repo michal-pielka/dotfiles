@@ -29,3 +29,4 @@ alias cdl='cd_into_last_dir'
 
 # git aliases
 alias shlog='short_log_command_git'
+alias gswf='fzf_git_switch'
