@@ -32,3 +32,5 @@ alias shlog='short_log_command_git'
 alias gswf='fzf_git_switch'
 
 alias zth=open_file_in_zathura
+
+alias teach=open_teacher_website_picker
