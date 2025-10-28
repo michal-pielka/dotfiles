@@ -10,17 +10,32 @@ export TERM=xterm-256color
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_DEFAULT_OPTS='
-  --color=fg:-1,fg+:#f9f5d7,bg:-1,bg+:#262626
-  --color=hl:#ebdbb2,hl+:#f9f5d7,info:#458588,marker:#FB4A34
-  --color=prompt:#fb4a34,spinner:#d79921,pointer:#d79921,header:#87afaf
-  --color=gutter:-1,border:#ebdbb2,label:#aeaeae,query:#f9f5d7
-  --border="sharp" --border-label="" --preview-window="hidden,sharp"
-  --height=~65% --prompt=" " --separator=""
-  --scrollbar="" --layout="reverse"
-  --bind="tab:toggle-preview"
-  --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
 export FZF_CTRL_R_OPTS="--no-preview"
+export FZF_DEFAULT_OPTS='
+  --color=fg:-1,fg+:-1
+  --color=bg:-1,bg+:-1
+  --color=hl:-1,hl+:#fb4a34
+  --color=info:#458588
+  --color=marker:#fb4a34
+  --color=prompt:#fb4a34
+  --color=spinner:#d79921
+  --color=pointer:#d79921
+  --color=header:#87afaf
+  --color=gutter:-1
+  --color=border:#ebdbb2
+  --color=label:#aeaeae
+  --color=query:#f9f5d7
+  --border="sharp"
+  --border-label=""
+  --preview-window="hidden,sharp"
+  --prompt=" "
+  --separator=""
+  --scrollbar=""
+  --layout="reverse"
+  --bind="tab:toggle-preview"
+  --height=~65%
+  --pointer="■"
+  --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
 
 # bat
 export BAT_THEME="gruvbox-dark"
