@@ -45,6 +45,7 @@ function cd_into_last_dir() {
 	fi
 }
 
+# git functions
 short_log_command_git() {
 	local n
 	if [[ "$1" =~ ^[0-9]+$ ]]; then
@@ -54,6 +55,18 @@ short_log_command_git() {
 		n=10
 	fi
 	git --no-pager log --oneline -n "$n" "$@"
+}
+
+github_search_repo_fzf() {
+  if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <repo-name>"
+    return 1
+  fi
+
+  gh search repos --json fullName,stargazersCount,description "$@" \
+	  | jq -r '(map(.stargazersCount) | max | tostring | length) as $maxlen | .[] | "\u001b[33m\(.stargazersCount | tostring | length as $len | if $len < $maxlen then ($maxlen - $len | " " * .) + "\(.)" else "\(.)" end)\u001b[0m - \(.fullName) - \(.description)"' \
+	  | fzf --ansi --prompt='Select repository: ' \
+	  | awk -F ' - ' '{print $2}'
 }
 
 fzf_git_switch() {

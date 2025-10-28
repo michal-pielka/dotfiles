@@ -30,7 +30,10 @@ alias cdl='cd_into_last_dir'
 # git aliases
 alias shlog='short_log_command_git'
 alias gswf='fzf_git_switch'
+alias ghf='github_search_repo_fzf'
 
 alias zth=open_file_in_zathura
 
 alias teach=open_teacher_website_picker
+
+alias gcal='gcalcli'
