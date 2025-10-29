@@ -10,6 +10,7 @@ alias c='clear'
 # eza / ls
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
 alias lt='ls --tree'
+alias sl='ls'
 
 # nvim
 alias n='nvim'
