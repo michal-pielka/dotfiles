@@ -37,3 +37,7 @@ alias zth=open_file_in_zathura
 alias teach=open_teacher_website_picker
 
 alias gcal='gcalcli'
+
+# pyenv
+alias act='source .venv/bin/activate'
+alias deact='deactivate'
