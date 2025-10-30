@@ -32,6 +32,7 @@ alias cdl='cd_into_last_dir'
 alias shlog='short_log_command_git'
 alias gswf='fzf_git_switch'
 alias ghf='github_search_repo_fzf'
+alias ghcf='github_search_and_clone_repo_fzf'
 
 alias zth=open_file_in_zathura
 

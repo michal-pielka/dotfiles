@@ -64,9 +64,42 @@ github_search_repo_fzf() {
   fi
 
   gh search repos --json fullName,stargazersCount,description "$@" \
-	  | jq -r '(map(.stargazersCount) | max | tostring | length) as $maxlen | .[] | "\u001b[33m\(.stargazersCount | tostring | length as $len | if $len < $maxlen then ($maxlen - $len | " " * .) + "\(.)" else "\(.)" end)\u001b[0m - \(.fullName) - \(.description)"' \
-	  | fzf --ansi --prompt='Select repository: ' \
-	  | awk -F ' - ' '{print $2}'
+    | jq -r '(map(.stargazersCount) | max | tostring | length) as $maxlen
+      | .[]
+      | "\u001b[33m\(.stargazersCount | tostring | length as $len
+         | if $len < $maxlen then ($maxlen - $len | " " * .) + "\(.)" else "\(.)" end)\u001b[0m - \(.fullName) - \(.description)"' \
+      | fzf --height=~100% --preview-window="hidden,sharp,80%" --ansi --prompt='Select repository: ' \
+          --preview 'bash -c '"'"'
+            repo=$(awk -F " - " "{print \$2}" <<< "$1")
+            [ -z "$repo" ] && { echo "No repo parsed"; exit 0; }
+
+			readme=$(gh api -H "Accept: application/vnd.github.v3.raw" "repos/$repo/readme" 2>/dev/null)
+			if [ -z "$readme" ]; then
+				echo "No README found or failed to fetch."
+				exit 0
+			fi
+
+			# Print the README content via glow
+			echo "$readme" | env -u NO_COLOR CLICOLOR_FORCE=1 glow --style=dark -
+          '"'"' -- {}' \
+    | awk -F ' - ' '{print $2}'
+}
+
+github_search_and_clone_repo_fzf() {
+    if [ $# -lt 1 ]; then
+        github_search_repo_fzf # Let it handle showing the usage and error
+        return 1
+    fi
+
+    local repo
+    repo=$(github_search_repo_fzf "$@") || return 1
+
+    if [ -z "$repo" ]; then
+        echo "No repository selectedk." >&2
+        return 1
+    fi
+
+    gh repo clone "$repo"
 }
 
 fzf_git_switch() {
