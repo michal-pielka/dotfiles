@@ -32,7 +32,7 @@ export FZF_DEFAULT_OPTS='
   --separator=""
   --scrollbar=""
   --layout="reverse"
-  --bind="tab:toggle-preview"
+  --bind="tab:toggle-preview,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
   --height=~65%
   --pointer="■"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
