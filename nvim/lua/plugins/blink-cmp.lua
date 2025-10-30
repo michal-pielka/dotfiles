@@ -1,48 +1,53 @@
 -- Autocompletion
 return {
-  'saghen/blink.cmp',
-  event = 'VimEnter',
-  version = '1.*',
-  --- @module 'blink.cmp'
-  --- @type blink.cmp.Config
-  opts = {
-    keymap = {
-      preset = 'none',
-      ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'fallback' },
-	  ['<C-j>'] = { 'select_next', 'fallback' },
-      ['<C-k>'] = { 'select_prev', 'fallback' },
-      ['<CR>'] = { 'accept', 'fallback' },
-    },
+	'saghen/blink.cmp',
+	event = 'VimEnter',
+	version = '1.*',
+	--- @module 'blink.cmp'
+	--- @type blink.cmp.Config
+	opts = {
+		keymap = {
+			preset = 'none',
+			['<Tab>'] = { 'select_next', 'fallback' },
+			['<S-Tab>'] = { 'select_prev', 'fallback' },
+			['<C-j>'] = { 'select_next', 'fallback' },
+			['<C-k>'] = { 'select_prev', 'fallback' },
+			['<CR>'] = { 'accept', 'fallback' },
+		},
 
-    appearance = {
-      nerd_font_variant = 'mono',
-    },
+		appearance = {
+			nerd_font_variant = 'mono',
+		},
 
-    completion = {
-      -- Apply styling to completion menu and documentation
-      menu = {
-        scrollbar = false,
-        draw = {
-          padding = { 1, 1 },
-          columns = { { 'kind_icon', separator = ' ' }, { 'label', separator = ' ' }, { 'kind', separator = ' ' } },
-        },
-      },
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 1500,
-      },
-    },
+		completion = {
+			-- Apply styling to completion menu and documentation
+			menu = {
+				scrollbar = false,
+				draw = {
+					padding = { 1, 1 },
+					columns = { { 'kind_icon', separator = ' ' }, { 'label', separator = ' ' }, { 'kind', separator = ' ' } },
+				},
+			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 1500,
+			},
+		},
 
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', },
-    },
+		cmdline = {
+			keymap = { preset = 'inherit'},
+			completion = { menu = { auto_show = true } },
+		},
 
-    fuzzy = { implementation = 'lua' },
+		sources = {
+			default = { 'lsp', 'path', 'snippets', 'buffer', },
+		},
 
-    -- Apply styling to signature help window
-    signature = {
-      enabled = true,
-    },
-  },
+		fuzzy = { implementation = 'lua' },
+
+		-- Apply styling to signature help window
+		signature = {
+			enabled = true,
+		},
+	},
 }
