@@ -42,3 +42,4 @@ export BAT_THEME="gruvbox-dark"
 
 # general
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
