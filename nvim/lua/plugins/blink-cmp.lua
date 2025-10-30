@@ -35,7 +35,10 @@ return {
 		},
 
 		cmdline = {
-			keymap = { preset = 'inherit'},
+			keymap = {
+				preset = 'inherit',
+				['<CR>'] = { action = 'accept', execute = true, fallback = true },
+			},
 			completion = { menu = { auto_show = true } },
 		},
 
