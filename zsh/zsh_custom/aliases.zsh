@@ -25,8 +25,9 @@ alias ipaste="put_clipboard.sh"
 
 # directory aliases
 alias cdf='cd_fzf'
-alias dot='cd $DOTFILES_PATH'
 alias cdl='cd_into_last_dir'
+alias rec='cd ~/videos/screen_recordings/'
+alias dot='cd $DOTFILES_PATH'
 
 # git aliases
 alias shlog='short_log_command_git'
