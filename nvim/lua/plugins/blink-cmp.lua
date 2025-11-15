@@ -8,11 +8,12 @@ return {
 	opts = {
 		keymap = {
 			preset = 'none',
+			['<Up>'] = { 'select_prev', 'fallback' }, -- Meant to be used via ctrl + k keyd remap
+			['<Down>'] = { 'select_next', 'fallback' }, -- Meant to be used via ctrl + j keyd remap
+			['<CR>'] = { 'accept', 'fallback' },
+
 			['<Tab>'] = { 'select_next', 'fallback' },
 			['<S-Tab>'] = { 'select_prev', 'fallback' },
-			['<C-j>'] = { 'select_next', 'fallback' },
-			['<C-k>'] = { 'select_prev', 'fallback' },
-			['<CR>'] = { 'accept', 'fallback' },
 		},
 
 		appearance = {
