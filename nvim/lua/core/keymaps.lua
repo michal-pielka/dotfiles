@@ -15,10 +15,10 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 
 -- Make split navigation easier
-map('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
-map('<C-l>', '<C-w><C-l>', 'Move focus to the right window')
-map('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
-map('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
+map('<Left>', '<C-w><C-h>', 'Move focus to the left window')
+map('<Right>', '<C-w><C-l>', 'Move focus to the right window')
+map('<Down>', '<C-w><C-j>', 'Move focus to the lower window')
+map('<Up>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Buffer navigation
 map('>', ':bnext<CR>', 'Next buffer')
@@ -39,3 +39,7 @@ map('L', '$', 'Go to line ending')
 
 -- Easy access to the norm command
 vim.keymap.set({ 'n', 'v' }, '<leader>n', ':norm ', { desc = 'Norm command' })
+
+-- Map arrow keys to gj/gk - useful for going down a visible line in a long line.
+-- map('<Up>', 'gk', 'Go up a visible line')
+-- map('<Down>', 'gj', 'Go down a visible line')
