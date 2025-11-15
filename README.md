@@ -1,4 +1,4 @@
-# dotfiles — handcrafted configs for questionable efficiency.
+# dotfiles - handcrafted configs for questionable efficiency.
 
 <p align="center">
   <img src="assets/images/foot_screenshot.png" alt="Foot Terminal Screenshot" width="100%" />
@@ -44,6 +44,7 @@ These dotfiles aim for a productive, minimal, and keyboard-first workflow with s
 - eza
 - git
 - firefox
+- keyd
 
 ## Additional tools used
 
@@ -63,7 +64,7 @@ Fonts
 
 ## Highlights
 
-- ASCII OSD via mako for volume/brightness 
+- ASCII OSD via mako for volume/brightness
   - Media keys trigger small shell scripts that adjust levels and send a monospace ASCII art via notify-send, styled with mako.
 
 <p align="center">
@@ -73,7 +74,7 @@ Fonts
 
 - Universal theme switcher: change-theme
   - One command to apply coherent theming defined in themes/theme_name across hyprland, neovim, waybar, mako, foot, fuzzel, zsh and eza.
- 
+
 <p align="center">
   <img src="assets/images/foot_screenshot_ayu.png" alt="Foot Screenshot Ayu" width="49%" />
   <img src="assets/images/foot_screenshot_nord.png" alt="Foot Screenshot Nord" width="49%" />
