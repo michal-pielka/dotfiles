@@ -104,10 +104,13 @@ github_search_and_clone_repo_fzf() {
 
 fzf_git_switch() {
 	local branch
-	branch=$(git branch --list --color | fzf --ansi --height=~40% | awk '{print $NF}')
-	if [ -n "$branch" ]; then
-		git switch "$branch"
-	fi
+	branch=$({
+			git branch --color | grep '^\*';   # current branch
+			git branch --color | grep -v '^\*' # all others
+		} | fzf --ansi --height=~40% | awk '{print $NF}'
+	)
+
+	[ -n "$branch" ] && git switch "$branch"
 }
 
 open_file_in_zathura() {
