@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-EXTENSIONS=("py" "rs" "go" "c" "cpp" "sh" "zsh" "yml" "ini", "conf" "css" "lua" "json")
+EXTENSIONS=("py" "rs" "go" "c" "cpp" "sh" "zsh" "yml" "ini", "conf" "css" "lua" "json" "js")
 
 EXTENSIONS_ARGUMENTS=$(printf -- "-e %s " "${EXTENSIONS[@]}")
 # Get the first command-line argument as the path; default to current directory
