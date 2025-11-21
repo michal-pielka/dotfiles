@@ -44,3 +44,5 @@ alias gcal='gcalcli'
 # pyenv
 alias act='source .venv/bin/activate'
 alias deact='deactivate'
+
+alias typstw=start_typst_preview

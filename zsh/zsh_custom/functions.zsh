@@ -128,3 +128,8 @@ open_teacher_website_picker() {
 		xdg-open "$selected" > /dev/null 2>&1 & disown
 	fi
 }
+
+start_typst_preview() {
+  typst watch $@ &>/dev/null &
+  disown
+}
