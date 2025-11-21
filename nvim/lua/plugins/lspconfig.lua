@@ -44,7 +44,7 @@ return {
       require('blink.cmp').get_lsp_capabilities()
     )
 
-    -- Define servers (keep only a couple; add more as needed)
+    -- Define servers
 	local servers = {
 	  lua_ls = {
 		settings = {
@@ -78,5 +78,24 @@ return {
         end,
       },
     }
+
+    -- Custom Julia LSP setup using new API
+    vim.lsp.config('julials', {
+      cmd = {
+        'julia',
+        '--project=@nvim-lspconfig',
+        '--startup-file=no',
+        '--threads=1',
+        '-e',
+        'using LanguageServer; run(LanguageServer.LanguageServerInstance(stdin, stdout))'
+      },
+      capabilities = capabilities,
+    })
+
+    -- Enable all configured servers
+    vim.lsp.enable({ 'julials' })
+    for server_name in pairs(servers) do
+      vim.lsp.enable({ server_name })
+    end
   end,
 }
