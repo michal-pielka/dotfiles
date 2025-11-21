@@ -23,17 +23,21 @@ nvim_fzf() {
 
 # nvim with ripgrep and fzf (live grep)
 nvim_grep() {
-	local file
-	file=$(rg --line-number --no-heading --color=always "${1-}" | \
-		fzf --ansi \
-		--color "hl:-1:underline,hl+:-1:underline:reverse" \
-		--delimiter ":" \
-		--preview 'bat --style=full --color=always --highlight-line {2} {1}' | \
-		awk -F: '{print $1}')
+    local RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+    local OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+                    "$EDITOR" {1} +{2}
+                  elif [[ $EDITOR == vim ]] || [[ $EDITOR == nvim ]]; then
+                    "$EDITOR" +cw -q {+f}
+                  else
+                    "$EDITOR" {+1}
+                  fi'
 
-	if [[ -n "$file" ]]; then
-		nvim "$file"
-	fi
+    fzf --disabled --ansi --multi --query "${*:-}" \
+        --bind "start,change:$RELOAD" \
+        --bind "enter:become:$OPENER" \
+        --bind 'tab:toggle-preview' \
+        --delimiter : \
+        --preview 'bat --color=always --highlight-line {2} {1}' \
 }
 
 # Meant to be used with chpwd ZSH hook.
