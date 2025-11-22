@@ -137,3 +137,16 @@ start_typst_preview() {
   typst watch $@ &>/dev/null &
   disown
 }
+
+wifi_fzf() {
+	nmcli -f 'bssid,signal,bars,freq,ssid' --color yes device wifi |
+		fzf \
+		--with-nth=2.. \
+		--ansi \
+		--height=~50% \
+		--reverse \
+		--cycle \
+		--no-info \
+		--header-lines=1 \
+		--bind="enter:execute:nmcli -a device wifi connect {1}"
+}
