@@ -1,8 +1,8 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = '[\[](bright_white bold) $directory $git_status[\]$character](bright_white bold)'
-right_format = '$cmd_duration$localip'
+format = '$python[\[](bright_white bold) $directory $git_status[\]$character](bright_white bold)'
+right_format = '$cmd_duration'
 
 add_newline = false
 palette = 'bright'
@@ -38,6 +38,14 @@ modified = '[~](bright_blue bold)'
 staged = '[+](bright_green bold)'
 renamed = '[>](bright_yellow bold)'
 deleted = '[-](bright_red bold)'
+
+[python]
+# Only show if virtualenv is present
+format = '[\(](bright_yellow bold)[$virtualenv](bright_yellow)[\)](bright_yellow bold) '
+
+detect_extensions = []
+detect_files = []
+detect_folders = []
 
 [palettes.bright]
 bright_black   = '#928374'
