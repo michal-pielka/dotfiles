@@ -1,4 +1,4 @@
 # Oh My Zsh and plugins
-plugins=(zsh-syntax-highlighting git zsh-vi-mode)
+plugins=(zsh-syntax-highlighting git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
