@@ -45,6 +45,7 @@ These dotfiles aim for a productive, minimal, and keyboard-first workflow with s
 - git
 - firefox
 - keyd
+- starship
 
 ## Additional tools used
 
