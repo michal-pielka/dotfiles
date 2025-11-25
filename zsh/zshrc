@@ -9,7 +9,8 @@ source "${ZSH_CONFIG_PATH}/functions.zsh"
 source "${ZSH_CONFIG_PATH}/theme.zsh"
 source "${ZSH_CONFIG_PATH}/hooks.zsh"
 
-source <(fzf --zsh)
+# init fzf compatible with zsh-vi-mode
+zvm_after_init_commands+=('source <(fzf --zsh)')
 
 # prompt
 eval "$(starship init zsh)"
