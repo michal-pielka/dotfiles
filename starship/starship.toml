@@ -1,0 +1,50 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = '[\[](bright_white bold) $directory $git_status[\]$character](bright_white bold)'
+right_format = '$cmd_duration$localip'
+
+add_newline = false
+palette = 'bright'
+
+[character]
+format = '$symbol '
+success_symbol = '[\$](bright_white bold)'
+error_symbol = '[\$](bright_red bold)'
+vimcmd_symbol = '[\$](bright_blue bold)'
+
+[directory]
+format = "[$path]($style)"
+style = "bright_red"
+truncation_length = 1
+fish_style_pwd_dir_length = 1
+
+[cmd_duration]
+min_time = 2_000
+show_milliseconds = false
+style = 'bold yellow'
+format = ' [$duration]($style)'
+
+[git_status]
+format = '$all_status$ahead_behind'
+conflicted = '[!](red bold)'
+ahead = '[>](bright_green bold)'
+behind = '[<](bright_red bold)'
+diverged = '[<>](bright_red bold)'
+up_to_date = ''
+untracked = '[?](bright_magenta bold)'
+stashed = '[*](bright_black bold)'
+modified = '[~](bright_blue bold)'
+staged = '[+](bright_green bold)'
+renamed = '[>](bright_yellow bold)'
+deleted = '[-](bright_red bold)'
+
+[palettes.bright]
+bright_black   = '#928374'
+bright_red     = '#fb4934'
+bright_green   = '#b8bb26'
+bright_yellow  = '#fabd2f'
+bright_blue    = '#83a598'
+bright_magenta = '#d3869b'
+bright_cyan    = '#8ec07c'
+bright_white   = '#ebdbb2'
