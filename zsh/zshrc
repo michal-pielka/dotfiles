@@ -10,3 +10,6 @@ source "${ZSH_CONFIG_PATH}/theme.zsh"
 source "${ZSH_CONFIG_PATH}/hooks.zsh"
 
 source <(fzf --zsh)
+
+# prompt
+eval "$(starship init zsh)"
