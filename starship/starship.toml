@@ -11,7 +11,7 @@ palette = 'bright'
 format = '$symbol '
 success_symbol = '[\$](bright_white bold)'
 error_symbol = '[\$](bright_red bold)'
-vimcmd_symbol = '[\$](bright_black bold)'
+vimcmd_symbol = '[\$](bright_white bold)'
 
 [directory]
 format = "[$path]($style)"
