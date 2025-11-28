@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API_URL="https://api.jsonbin.io/v3"
-url="$API_URL/b/$BIN_ID"
+url="$API_URL/b/$JSONBIN_BIN_ID"
 
 clipboard=$(wl-paste)
 
