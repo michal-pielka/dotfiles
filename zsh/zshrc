@@ -9,6 +9,7 @@ source "${ZSH_CONFIG_PATH}/vi_mode_custom.zsh"
 source "${ZSH_CONFIG_PATH}/functions.zsh"
 source "${ZSH_CONFIG_PATH}/theme.zsh"
 source "${ZSH_CONFIG_PATH}/hooks.zsh"
+source "${ZSH_CONFIG_PATH}/keybindings.zsh"
 
 # init fzf compatible with zsh-vi-mode
 source <(fzf --zsh)
