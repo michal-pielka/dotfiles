@@ -48,5 +48,3 @@ alias deact='deactivate'
 alias typstw=start_typst_preview
 
 alias wifi=wifi_fzf
-
-alias cat='bat --pager never'
