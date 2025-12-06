@@ -11,6 +11,8 @@ export TERM=xterm-256color
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_R_OPTS="--no-preview"
+
+# --bind="tab:toggle-preview-full" only works using my fzf fork
 export FZF_DEFAULT_OPTS='
   --color=fg:-1,fg+:-1
   --color=bg:-1,bg+:-1
@@ -29,10 +31,11 @@ export FZF_DEFAULT_OPTS='
   --border-label=""
   --preview-window="hidden,sharp"
   --prompt=" "
+  --gutter=" "
   --separator=""
   --scrollbar=""
   --layout="reverse"
-  --bind="tab:toggle-preview,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+  --bind="tab:toggle-preview-full,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
   --height=~65%
   --pointer="■"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'
