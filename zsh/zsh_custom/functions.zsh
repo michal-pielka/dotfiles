@@ -35,7 +35,6 @@ nvim_grep() {
     fzf --disabled --ansi --multi --query "${*:-}" \
         --bind "start,change:$RELOAD" \
         --bind "enter:become:$OPENER" \
-        --bind 'tab:toggle-preview' \
         --delimiter : \
         --preview 'bat --color=always --highlight-line {2} {1}' \
 }
