@@ -10,5 +10,5 @@ return {
     },
   },
 
-	vim.keymap.set('n', '<leader>e', '<CMD>Oil --float<CR>', { desc = "Open Oil" } )
+	vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = "Open Oil" } )
 }
