@@ -41,6 +41,15 @@ return {
 				['<CR>'] = { 'accept_and_enter', 'fallback' },
 			},
 			completion = { menu = { auto_show = true } },
+			sources = function()
+				local cmdtype = vim.fn.getcmdtype()
+				if cmdtype == '/' or cmdtype == '?' then
+					return {} -- No suggestions for '/' or '?'
+				elseif cmdtype == ':' then
+					return { 'cmdline' } -- Suggestions for ':'
+				end
+				return {} -- Default case
+			end,
 		},
 
 		sources = {
