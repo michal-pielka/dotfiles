@@ -25,6 +25,7 @@ return {
 				local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
 				local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
 				local location      = MiniStatusline.section_location({ trunc_width = 75 })
+				local lsp           = MiniStatusline.section_lsp({ trunc_width = 75 })
 
 				return MiniStatusline.combine_groups({
 					{ hl = mode_hl,                 strings = { mode } },
@@ -32,6 +33,7 @@ return {
 					'%<',        -- general truncate point
 					{ hl = 'Pmenu', strings = { filename } },
 					'%=',        -- start right-aligned area
+					{ hl = 'Pmenu', strings = { lsp } },
 					{ hl = mode_hl,                 strings = { location } },
 				})
 			end,
