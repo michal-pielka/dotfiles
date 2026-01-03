@@ -1,6 +1,4 @@
 # Paths and environment variables
-export ZSH="$HOME/.oh-my-zsh"
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DOTFILES_PATH/scripts:$PATH"
