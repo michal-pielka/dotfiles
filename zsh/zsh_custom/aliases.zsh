@@ -18,6 +18,7 @@ alias -g .......='../../../../../..'
 
 # File System & Search
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
+alias l='ls -lah'
 alias lt='ls --tree'
 alias sl='ls'
 alias f='fd_fzf'
