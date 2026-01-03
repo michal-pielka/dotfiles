@@ -1,26 +1,106 @@
 #!/usr/bin/env bash
 
 
-# Simple installer: install a small Wayland / terminal stack.
-
-# Supported DISTRO values (edit below or pass --distro=...):
-#   arch | fedora | debian | ubuntu
-
-# Packages installed (attempted):
-#   btop eza foot git hyprland neovim waybar
-
-# Usage:
-#   1. Adjust DISTRO variable below OR run: ./install_stack.sh --distro=arch
-#   2. chmod +x install_desktop_stack.sh
-#   3. ./install_desktop_stack.sh
-
-
 set -euo pipefail
 
-DISTRO="fedora"          # arch | fedora | debian | ubuntu
+DISTRO="ubuntu"          # arch | fedora | debian | ubuntu
 NON_INTERACTIVE="false"  # (reserved; no prompts right now)
 
-PACKAGES=(btop eza foot git hyprland neovim waybar)
+PACKAGES=(
+  hyprland
+  hyprpaper
+  hypridle
+  hyprlock
+
+  # Terminal
+  foot
+
+  # Shell and prompt
+  zsh
+  starship
+
+  # Editor
+  neovim
+
+  # Status bar and notifications
+  waybar
+  mako
+
+  # Application launcher
+  fuzzel
+
+  # File manager
+  yazi
+
+  # Browser
+  firefox
+
+  # System monitoring
+  btop
+
+  # File system tools
+  fd-find
+  ripgrep
+  eza
+
+  # Text processing
+  bat
+  jq
+
+  # Fuzzy finder
+  fzf
+
+  # Wayland utilities
+  wl-clipboard
+  grim
+  slurp
+  wf-recorder
+
+  # Audio/Media control
+  playerctl
+  wireplumber
+  pipewire
+
+  # Brightness control
+  brightnessctl
+
+  # Network tools
+  network-manager
+
+  # Git and GitHub
+  git
+  git-delta
+  gh
+  glow
+
+  # Documentation
+  tealdeer
+
+  # Document viewer
+  zathura
+
+  # Typesetting
+  typst
+
+  # Image processing
+  imagemagick
+
+  # Authentication agent
+  polkit-kde-agent-1
+
+  # Keyboard remapping
+  keyd
+
+  # Calendar (optional)
+  gcalcli
+
+  # Python for venv
+  python3
+  python3-venv
+
+  # Build tools
+  curl
+)
 
 # Parse very small set of args
 for arg in "$@"; do
