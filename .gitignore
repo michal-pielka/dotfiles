@@ -1,5 +1,4 @@
 nvim/lazy-lock.json
-private.env
 
 # ignore the per-machine "current" symlink and per-app symlinks
 themes/current
