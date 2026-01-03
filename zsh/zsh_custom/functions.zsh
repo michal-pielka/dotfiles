@@ -108,8 +108,8 @@ github_search_and_clone_repo_fzf() {
 fzf_git_switch() {
 	local branch
 	branch=$({
-			git branch --color | grep '^\*';   # current branch
-			git branch --color | grep -v '^\*' # all others
+			git branch --color | rg '^\*';   # current branch
+			git branch --color | rg -v '^\*' # all others
 		} | fzf --ansi --height=~40% | awk '{print $NF}'
 	)
 
