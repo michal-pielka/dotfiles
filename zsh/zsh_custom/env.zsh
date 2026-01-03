@@ -4,6 +4,8 @@ export PATH="$HOME/.go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$DOTFILES_PATH/scripts:$PATH"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/config.toml"
+
 # Editor
 export EDITOR=nvim
 export MANPAGER='nvim +Man!'
