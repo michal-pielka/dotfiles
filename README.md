@@ -7,7 +7,7 @@
 A clean, modern Wayland-centric development environment centered around:
 - hyprland (Wayland compositor)
 - foot (fast, minimal terminal emulator)
-- zsh with oh-my-zsh (shell and ergonomics)
+- zsh
 - neovim (modal editor configured in Lua)
 
 These dotfiles aim for a productive, minimal, and keyboard-first workflow with sensible defaults and clear structure, designed for a mostly terminal workflow.
@@ -24,7 +24,7 @@ These dotfiles aim for a productive, minimal, and keyboard-first workflow with s
 
 - hyprland: tiling, window rules, and keybindings
 - foot: styling
-- zsh + oh-my-zsh: aliases, plugins, completions, prompt
+- zsh: aliases, plugins, completions, prompt
 - neovim: plugins, keymaps, autocommands, options and LSP setup
 
 ---
