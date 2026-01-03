@@ -1,3 +1,4 @@
+# Navigation
 cd_fzf() {
 	local dir
 	dir=$(fd --type d . | fzf --no-preview)
@@ -7,12 +8,20 @@ cd_fzf() {
 	fi
 }
 
-# Basically f='fd | fzf' with option to use flags like -e py, -t f etc.
+cd_into_last_dir() {
+	if [[ -f $XDG_RUNTIME_DIR/last_cd_dir_$USER ]]; then
+		cd "$(cat $XDG_RUNTIME_DIR/last_cd_dir_$USER)"
+	else
+		echo "No last directory recorded."
+	fi
+}
+
+# File System
 fd_fzf() {
 	fd "$@" | fzf
 }
 
-# nvim with fzf
+# Editor
 nvim_fzf() {
 	files=($(fd --type file "$@" | fzf --multi))
 
@@ -21,7 +30,6 @@ nvim_fzf() {
 	fi
 }
 
-# nvim with ripgrep and fzf (live grep)
 nvim_grep() {
     local RELOAD='reload:rg --column --color=always --smart-case {q} || :'
     local OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
@@ -39,16 +47,7 @@ nvim_grep() {
         --preview 'bat --color=always --highlight-line {2} {1}' \
 }
 
-# Meant to be used with chpwd ZSH hook.
-function cd_into_last_dir() {
-	if [[ -f $XDG_RUNTIME_DIR/last_cd_dir_$USER ]]; then
-		cd "$(cat $XDG_RUNTIME_DIR/last_cd_dir_$USER)"
-	else
-		echo "No last directory recorded."
-	fi
-}
-
-# git functions
+# Git
 short_log_command_git() {
 	local n
 	if [[ "$1" =~ ^[0-9]+$ ]]; then
@@ -58,6 +57,17 @@ short_log_command_git() {
 		n=10
 	fi
 	git --no-pager log --oneline -n "$n" "$@"
+}
+
+fzf_git_switch() {
+	local branch
+	branch=$({
+			git branch --color | rg '^\*';
+			git branch --color | rg -v '^\*'
+		} | fzf --ansi --height=~40% | awk '{print $NF}'
+	)
+
+	[ -n "$branch" ] && git switch "$branch"
 }
 
 github_search_repo_fzf() {
@@ -82,7 +92,6 @@ github_search_repo_fzf() {
 				exit 0
 			fi
 
-			# Print the README content via glow
 			echo "$readme" | env -u NO_COLOR CLICOLOR_FORCE=1 glow --style=dark -
           '"'"' -- {}' \
     | awk -F ' - ' '{print $2}'
@@ -90,7 +99,7 @@ github_search_repo_fzf() {
 
 github_search_and_clone_repo_fzf() {
     if [ $# -lt 1 ]; then
-        github_search_repo_fzf # Let it handle showing the usage and error
+        github_search_repo_fzf
         return 1
     fi
 
@@ -98,24 +107,14 @@ github_search_and_clone_repo_fzf() {
     repo=$(github_search_repo_fzf "$@") || return 1
 
     if [ -z "$repo" ]; then
-        echo "No repository selectedk." >&2
+        echo "No repository selected." >&2
         return 1
     fi
 
     gh repo clone "$repo"
 }
 
-fzf_git_switch() {
-	local branch
-	branch=$({
-			git branch --color | rg '^\*';   # current branch
-			git branch --color | rg -v '^\*' # all others
-		} | fzf --ansi --height=~40% | awk '{print $NF}'
-	)
-
-	[ -n "$branch" ] && git switch "$branch"
-}
-
+# Apps & Utilities
 open_file_in_zathura() {
 	if [ "$#" -eq 0 ]; then
 		return 1
@@ -125,16 +124,16 @@ open_file_in_zathura() {
 	disown
 }
 
+start_typst_preview() {
+  typst watch $@ &>/dev/null &
+  disown
+}
+
 open_teacher_website_picker() {
 	selected=$(cat "$HOME/.scriptfiles/prowadzacy.txt" | fzf --delimiter ";" --with-nth=2.. --accept-nth 1)
 	if [ -n "$selected" ]; then
 		xdg-open "$selected" > /dev/null 2>&1 & disown
 	fi
-}
-
-start_typst_preview() {
-  typst watch $@ &>/dev/null &
-  disown
 }
 
 wifi_fzf() {
