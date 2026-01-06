@@ -48,3 +48,6 @@ alias teach=open_teacher_website_picker
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"
 alias ipaste="put_clipboard.sh"
+
+# Proxy
+alias rmproxy="unset http_proxy && unset HTTP_PROXY && unset https_proxy && unset HTTPS_PROXY && unset all_proxy && unset ALL_PROXY"
