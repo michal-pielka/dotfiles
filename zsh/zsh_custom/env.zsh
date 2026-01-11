@@ -14,6 +14,7 @@ export MANPAGER='nvim +Man!'
 export TERM=xterm-256color
 
 # ZSH History
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=50000
 export SAVEHIST=10000
