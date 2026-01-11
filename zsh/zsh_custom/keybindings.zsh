@@ -17,3 +17,9 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+bindkey -M menuselect '^[[A' up-line-or-history       # Up arrow
+bindkey -M menuselect '^[[B' down-line-or-history     # Down arrow
+bindkey -M menuselect '^[[C' forward-char             # Right arrow
+bindkey -M menuselect '^[[D' backward-char            # Left arrow
+bindkey -M menuselect '^[[Z' reverse-menu-complete    # Shift+Tab

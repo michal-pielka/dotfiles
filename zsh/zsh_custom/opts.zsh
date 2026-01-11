@@ -9,3 +9,8 @@ setopt HIST_EXPIRE_DUPS_FIRST 	# When trimming history, remove duplicates first
 setopt HIST_IGNORE_DUPS 		# Don't record duplicate consecutive commands
 setopt HIST_IGNORE_SPACE 		# Ignore extra spaces
 setopt HIST_REDUCE_BLANKS 		# Remove extra blanks from commands before adding to history
+
+# Completion
+setopt complete_in_word 		# Allow completion in middle of word
+setopt always_to_end 			# Move cursor to end of word after completion
+unsetopt menu_complete 			# Don't auto-insert first match
