@@ -26,6 +26,10 @@ return {
 		map('<leader>d', vim.diagnostic.open_float, 'Show Diagnostics')
         map('[d', vim.diagnostic.goto_prev, 'Prev Diagnostic')
         map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+
+        map('<leader>lf', function()
+          vim.lsp.buf.format { async = true }
+        end, 'Format Buffer')
       end,
     })
 
