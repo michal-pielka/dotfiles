@@ -148,3 +148,27 @@ wifi_fzf() {
 		--header-lines=1 \
 		--bind="enter:execute:nmcli -a device wifi connect {1}"
 }
+
+git_log_interactive() {
+  local selected=$(git log -n 100 --pretty=format:'%h %s' "$@" | \
+    fzf --ansi \
+        --preview 'git show {1} --pretty=format: | delta --paging=never' \
+        --preview-window=right:60% \
+        --delimiter=' ' \
+        --with-nth=1,2.. \
+        --layout=reverse \
+        --header-label ' commit ' \
+        --bind 'focus:+bg-transform-header:if [[ -n {} ]]; then
+                  git show {1} -q | head -n5 | delta --paging=never
+                fi' \
+        --bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up")
+
+  if [[ -z $selected ]]; then
+    return 1
+  fi
+
+  local short_hash="${selected%% *}"
+  local full_hash=$(git rev-parse "$short_hash")
+
+  echo "$full_hash"
+}
