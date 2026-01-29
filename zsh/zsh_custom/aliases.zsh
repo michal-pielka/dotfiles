@@ -20,6 +20,8 @@ alias -g C='| wl-copy'
 alias -g G='| rg'
 alias -g H='| head'
 alias -g T='| tail'
+alias -g S='| sort'
+alias -g U='| uniq'
 
 # File System & Search
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
