@@ -9,12 +9,16 @@ alias cdl='cd_into_last_dir'
 alias rec='cd ~/videos/screen_recordings/'
 alias dot='cd $DOTFILES_PATH'
 
-# Global aliases for quick directory navigation
+# Global aliases
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
+
+alias -g C='| wl-copy'
+alias -g G='| rg'
+alias -g H='| head'
 
 # File System & Search
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
@@ -52,7 +56,3 @@ alias ipaste="put_clipboard.sh"
 
 # Proxy
 alias rmproxy="unset http_proxy && unset HTTP_PROXY && unset https_proxy && unset HTTPS_PROXY && unset all_proxy && unset ALL_PROXY"
-
-# Global aliases
-alias -g C='| wl-copy'
-alias -g G='| rg'
