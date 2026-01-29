@@ -22,6 +22,9 @@ export SAVEHIST=10000
 # Bat
 export BAT_THEME="gruvbox-dark"
 
+# Zsh Vi Mode
+export ZVM_CURSOR_STYLE_ENABLED=false
+
 # Fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_R_OPTS="--no-preview"
