@@ -12,7 +12,7 @@ source "${ZSH_CONFIG_PATH}/hooks.zsh"
 source "${ZSH_CONFIG_PATH}/keybindings.zsh"
 
 # init fzf
-source <(fzf --zsh)
+zvm_after_init_commands+=('source <(fzf --zsh)')
 
 # prompt
 eval "$(starship init zsh)"
