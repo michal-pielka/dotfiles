@@ -1,4 +1,3 @@
-# Navigation
 cd_fzf() {
 	local dir
 	dir=$(fd --type d . | fzf --no-preview)
@@ -171,4 +170,27 @@ git_log_interactive() {
   local full_hash=$(git rev-parse "$short_hash")
 
   echo "$full_hash"
+}
+
+
+# Universal archive extractor
+extract() {
+  local f
+  for f in "$@"; do
+    [[ -r "$f" ]] || continue
+    case "$f" in
+      *.tar.bz2|*.tbz2)   tar xjf "$f" ;;
+      *.tar.gz|*.tgz)     tar xzf "$f" ;;
+      *.tar.xz|*.txz)     tar xJf "$f" ;;
+      *.tar.zst)          tar xf "$f" ;;
+      *.zip|*.jar|*.war)  unzip -q "$f" ;;
+      *.gz)               gunzip -k "$f" ;;
+      *.bz2)              bunzip2 -k "$f" ;;
+      *.xz)               unxz -k "$f" ;;
+      *.zst)              unzstd -k "$f" ;;
+      *.7z)               7z x "$f" ;;
+      *.rar)              unrar x "$f" ;;
+      *)                  echo "Don't know how to extract: $f" >&2 ;;
+    esac
+  done
 }
