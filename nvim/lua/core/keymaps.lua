@@ -38,8 +38,5 @@ map('H', '^', 'Go to line beginning')
 map('L', '$', 'Go to line ending')
 
 -- Easy access to the norm command
+-- Tip: Use <C-j> + <Esc> to get back into normal mode in the command
 vim.keymap.set({ 'n', 'v' }, '<leader>n', ':norm ', { desc = 'Norm command' })
-
--- Map arrow keys to gj/gk - useful for going down a visible line in a long line.
--- map('<Up>', 'gk', 'Go up a visible line')
--- map('<Down>', 'gj', 'Go down a visible line')
