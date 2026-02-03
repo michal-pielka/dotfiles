@@ -83,21 +83,7 @@ return {
       },
     }
 
-    -- Custom Julia LSP setup using new API
-    vim.lsp.config('julials', {
-      cmd = {
-        'julia',
-        '--project=@nvim-lspconfig',
-        '--startup-file=no',
-        '--threads=1',
-        '-e',
-        'using LanguageServer; run(LanguageServer.LanguageServerInstance(stdin, stdout))'
-      },
-      capabilities = capabilities,
-    })
-
     -- Enable all configured servers
-    vim.lsp.enable({ 'julials' })
     for server_name in pairs(servers) do
       vim.lsp.enable({ server_name })
     end
