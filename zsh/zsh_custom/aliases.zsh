@@ -59,4 +59,9 @@ alias ipaste="put_clipboard.sh"
 
 # Proxy
 alias rmproxy="unset http_proxy && unset HTTP_PROXY && unset https_proxy && unset HTTPS_PROXY && unset all_proxy && unset ALL_PROXY"
+
+# VPN
 alias mvd="mullvad"
+alias mvdc="mullvad connect"
+alias mvdd="mullvad disconnect"
+alias mvds="mullvad status"
