@@ -4,7 +4,7 @@ include=~/.config/mako/theme.conf
 border-size=2
 margin=14
 
-default-timeout=5000
+default-timeout=3250
 
 [app-name="media-osd"]
 border-radius=7
