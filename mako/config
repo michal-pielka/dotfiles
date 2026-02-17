@@ -6,6 +6,9 @@ margin=14
 
 default-timeout=3250
 
+[mode=do-not-disturb]
+invisible=1
+
 [app-name="media-osd"]
 border-radius=7
 font=Monospace 10
