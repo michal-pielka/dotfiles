@@ -81,7 +81,7 @@
     "tooltip-format-discharging": "{time} remaining",
   },
   "custom/recording": {
-	  "exec": "~/.config/waybar/scripts/recording_status.sh",
+	  "exec": "~/.config/waybar/scripts/recording-status.sh",
 	  "return-type": "json",
 	  "interval": "once",
 	  "signal": 8
