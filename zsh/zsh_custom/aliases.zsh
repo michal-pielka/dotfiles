@@ -53,6 +53,7 @@ alias typstw=start_typst_preview
 alias gcal='gcalcli'
 alias wifi=wifi_fzf
 alias teach=open_teacher_website_picker
+alias shai=claude-shell-helper
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"

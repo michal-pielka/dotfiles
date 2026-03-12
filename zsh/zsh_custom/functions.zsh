@@ -194,3 +194,9 @@ extract() {
     esac
   done
 }
+
+claude-shell-helper() {
+	claude -p --model claude-sonnet-4-6 \
+	--system-prompt "You are a shell helper. Respond with ONLY the raw command. No explanation, no markdown, no code fences, no backticks, no formatting. Just the plain command text." \
+	"$*";
+}
