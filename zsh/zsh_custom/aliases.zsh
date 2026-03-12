@@ -9,12 +9,13 @@ alias cdl='cd_into_last_dir'
 alias rec='cd ~/videos/screen_recordings/'
 alias dot='cd $DOTFILES_PATH'
 
-# Global aliases
+# Path
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
+alias cppwd="pwd | wl-copy"
 
 alias -g C='| wl-copy'
 alias -g G='| rg'
