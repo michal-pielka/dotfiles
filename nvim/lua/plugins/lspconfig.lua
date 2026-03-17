@@ -48,7 +48,7 @@ return {
       require('blink.cmp').get_lsp_capabilities()
     )
 
-    -- Define servers
+    -- Mason-managed servers (auto-installed)
 	local servers = {
 	  lua_ls = {
 		settings = {
@@ -63,29 +63,29 @@ return {
 	  gopls = {},
 	  bashls = {},
 	  ts_ls = {},
-	  -- clangd = {},
+	}
+
+	-- Not in Mason (system-installed)
+	local manual_servers = {
+	  clangd = {},
 	}
 
     -- Ensure tools/servers installed via mason-tool-installer
     local ensure = vim.tbl_keys(servers)
     require('mason-tool-installer').setup { ensure_installed = ensure }
 
-    -- mason-lspconfig setup: let mason-tool-installer drive installation list
+    -- Required to be set up between mason and lspconfig
     require('mason-lspconfig').setup {
       ensure_installed = {},
       automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local opts = servers[server_name] or {}
-          opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, opts.capabilities or {})
-          require('lspconfig')[server_name].setup(opts)
-        end,
-      },
     }
 
-    -- Enable all configured servers
-    for server_name in pairs(servers) do
-      vim.lsp.enable({ server_name })
+    -- Use native vim.lsp.config + vim.lsp.enable (Neovim 0.11+)
+    local all_servers = vim.tbl_extend('force', servers, manual_servers)
+    for server_name, opts in pairs(all_servers) do
+      opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, opts.capabilities or {})
+      vim.lsp.config(server_name, opts)
+      vim.lsp.enable(server_name)
     end
   end,
 }
