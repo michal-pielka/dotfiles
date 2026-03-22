@@ -17,6 +17,7 @@ alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
 alias cppwd="pwd | wl-copy"
 
+# Pipe aliases
 alias -g C='| wl-copy'
 alias -g G='| rg'
 alias -g H='| head'
@@ -59,10 +60,8 @@ alias shai=claude-shell-helper
 alias icopy="get_clipboard.sh"
 alias ipaste="put_clipboard.sh"
 
-# Proxy
+# Network
 alias rmproxy="unset http_proxy && unset HTTP_PROXY && unset https_proxy && unset HTTPS_PROXY && unset all_proxy && unset ALL_PROXY"
-
-# VPN
 alias mvd="mullvad"
 alias mvdc="mullvad connect"
 alias mvdd="mullvad disconnect"
