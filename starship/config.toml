@@ -40,21 +40,6 @@ number_threshold = 1
 symbol_threshold = 1
 style = 'bold bright_magenta'
 
-[env_var.http_proxy]
-format = ' [$env_value$symbol]($style)'
-style = 'bright_yellow'
-default = ""
-
-[env_var.https_proxy]
-format = ' [$env_value$symbol]($style)'
-style = 'bright_yellow'
-default = ""
-
-[env_var.all_proxy]
-format = ' [$env_value$symbol]($style)'
-style = 'bright_yellow'
-default = ""
-
 [python]
 # Only show if virtualenv is present
 format = '[\(](bright_yellow bold)[$virtualenv](bright_yellow)[\)](bright_yellow bold) '
