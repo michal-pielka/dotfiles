@@ -51,12 +51,12 @@ alias act='source .venv/bin/activate'
 alias deact='deactivate'
 
 # Apps & Utilities
-alias zth=open_file_in_zathura
-alias typstw=start_typst_preview
+alias zth='open_file_in_zathura'
+alias typstw='start_typst_preview'
 alias gcal='gcalcli'
-alias wifi=wifi_fzf
-alias teach=open_teacher_website_picker
-alias shai=claude-shell-helper
+alias wifi='wifi_fzf'
+alias teach='open_teacher_website_picker'
+alias shai='claude-shell-helper'
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"
