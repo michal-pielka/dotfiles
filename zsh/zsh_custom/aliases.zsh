@@ -45,6 +45,7 @@ alias ghcf='github_search_and_clone_repo_fzf'
 alias glogi='git_log_interactive'
 
 # Python
+alias py='python3'
 alias act='source .venv/bin/activate'
 alias deact='deactivate'
 
