@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+remote_url=$(git remote get-url origin 2>/dev/null)
+
+if [[ -z "$remote_url" ]]; then
+    echo "Not a git repo or no 'origin' remote found." >&2
+    exit 1
+fi
+
+# Convert SSH URLs to HTTPS
+if [[ "$remote_url" == git@* ]]; then
+    remote_url="${remote_url#git@}"
+    remote_url="https://${remote_url/:///}"
+fi
+
+# Strip .git suffix
+remote_url="${remote_url%.git}"
+
+echo "Opening $remote_url"
+firefox "$remote_url" &>/dev/null &

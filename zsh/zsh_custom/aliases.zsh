@@ -43,6 +43,7 @@ alias gswf='fzf_git_switch'
 alias ghf='github_search_repo_fzf'
 alias ghcf='github_search_and_clone_repo_fzf'
 alias glogi='git_log_interactive'
+alias opgurl='open_git_url'
 
 # Python
 alias py='python3'
