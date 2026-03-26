@@ -59,6 +59,12 @@ return {
 		},
 	  },
 	  pyright = {},
+	  ruff = {
+		on_attach = function(client)
+		  client.server_capabilities.hoverProvider = false
+		  client.server_capabilities.diagnosticProvider = false
+		end,
+	  },
 	  rust_analyzer = {},
 	  gopls = {},
 	  bashls = {},
