@@ -202,5 +202,56 @@ claude-shell-helper() {
 }
 
 open_file_in_imv () {
-  imv $@ &> /dev/null &!
+	imv $@ &> /dev/null &!
+}
+
+open_file_in_imv_floating () {
+	local max_pct=80
+	local file="$1"
+	shift
+
+	if [[ -z "$file" ]]; then
+		echo "Usage: imf <image-file>"
+		return 1
+	fi
+
+	if [[ ! -f "$file" ]]; then
+		echo "File doesn't exist"
+		return 1
+	fi
+
+	local dims
+	dims=$(identify -format '%w %h' "$file" 2>/dev/null) || {
+		echo "Cannot read image dimensions"
+		return 1
+	}
+
+	local img_w=${dims%% *}
+	local img_h=${dims##* }
+
+	local monitor_json
+	monitor_json=$(hyprctl monitors -j 2>/dev/null)
+	local mon_w mon_h
+	mon_w=$(echo "$monitor_json" | jq '.[0] | (.width / .scale | floor)')
+	mon_h=$(echo "$monitor_json" | jq '.[0] | (.height / .scale | floor)')
+
+	local max_w=$(( mon_w * max_pct / 100 ))
+	local max_h=$(( mon_h * max_pct / 100 ))
+
+	local win_w=$img_w
+	local win_h=$img_h
+
+	if (( win_w > max_w || win_h > max_h )); then
+		local ratio_w=$(( max_w * 1000 / win_w ))
+		local ratio_h=$(( max_h * 1000 / win_h ))
+		local ratio=$(( ratio_w < ratio_h ? ratio_w : ratio_h ))
+		win_w=$(( win_w * ratio / 1000 ))
+		win_h=$(( win_h * ratio / 1000 ))
+	fi
+
+	# Enforce a minimum size
+	(( win_w < 200 )) && win_w=200
+	(( win_h < 200 )) && win_h=200
+
+	imv -w imv_floating -W "$win_w" -H "$win_h" "$file" "$@" &> /dev/null &!
 }
