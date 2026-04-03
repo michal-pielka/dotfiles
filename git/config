@@ -1,6 +1,7 @@
 [user]
 	name = Michal Pielka
 	email = mpielka726@gmail.com
+	signingkey = ~/.ssh/id_ed25519
 
 [core]
 	editor = nvim
@@ -38,6 +39,12 @@
 
 [color "diff"]
 	commit = cyan
+
+[gpg]
+	format = ssh
+
+[commit]
+	gpgsign = true
 
 [credential "https://github.com"]
 	helper =
