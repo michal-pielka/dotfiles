@@ -58,6 +58,7 @@ alias gcal='gcalcli'
 alias wifi='wifi_fzf'
 alias teach='open_teacher_website_picker'
 alias shai='claude-shell-helper'
+alias im='open_file_in_imv'
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"

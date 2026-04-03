@@ -200,3 +200,7 @@ claude-shell-helper() {
 	--system-prompt "You are a shell helper. Respond with ONLY the raw command. No explanation, no markdown, no code fences, no backticks, no formatting. Just the plain command text." \
 	"$*";
 }
+
+open_file_in_imv () {
+  imv $@ &> /dev/null &!
+}
