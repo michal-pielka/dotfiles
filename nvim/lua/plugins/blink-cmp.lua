@@ -12,8 +12,8 @@ return {
 			['<Down>'] = { 'select_next', 'fallback' }, -- Meant to be used via ctrl + j keyd remap
 			['<CR>'] = { 'accept', 'fallback' },
 
-			['<Tab>'] = { 'select_next', 'fallback' },
-			['<S-Tab>'] = { 'select_prev', 'fallback' },
+			['<Tab>'] = { 'snippet_forward', 'select_next', 'fallback' },
+			['<S-Tab>'] = { 'snippet_backward', 'select_prev', 'fallback' },
 		},
 
 		appearance = {
@@ -21,12 +21,11 @@ return {
 		},
 
 		completion = {
-			-- Apply styling to completion menu and documentation
 			menu = {
 				scrollbar = false,
 				draw = {
 					padding = { 1, 1 },
-					columns = { { 'kind_icon', separator = ' ' }, { 'label', separator = ' ' }, { 'kind', separator = ' ' } },
+					columns = { { 'kind_icon' }, { 'label', gap = 1 }, { 'source_name' } },
 				},
 			},
 			documentation = {
