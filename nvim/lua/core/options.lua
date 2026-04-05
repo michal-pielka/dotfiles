@@ -58,3 +58,6 @@ vim.opt.fillchars:append({ eob = ' ' })
 
 -- Block cursor in insert mode
 vim.opt.guicursor = ""
+
+-- Hide the command line row
+vim.o.cmdheight = 0
