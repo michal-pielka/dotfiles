@@ -51,6 +51,11 @@ alias py='python3'
 alias act='source .venv/bin/activate'
 alias deact='deactivate'
 
+# Rust/Cargo
+alias cr='cargo run --release'
+alias cb='cargo build --release'
+alias ca='cargo add'
+
 # Apps & Utilities
 alias zth='open_file_in_zathura'
 alias typstw='start_typst_preview'
