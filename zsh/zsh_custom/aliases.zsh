@@ -65,6 +65,7 @@ alias teach='open_teacher_website_picker'
 alias shai='claude-shell-helper'
 alias im='open_file_in_imv'
 alias imf='open_file_in_imv_floating'
+alias spotify='spotify_player'
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"
