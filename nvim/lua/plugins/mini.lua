@@ -29,11 +29,11 @@ return {
 
 				return MiniStatusline.combine_groups({
 					{ hl = mode_hl,                 strings = { mode } },
-					{ hl = 'Pmenu', strings = { git, diff, diagnostics } },
+					{ hl = 'StatusLine', strings = { git, diff, diagnostics } },
 					'%<',        -- general truncate point
-					{ hl = 'Pmenu', strings = { filename } },
+					{ hl = 'StatusLine', strings = { filename } },
 					'%=',        -- start right-aligned area
-					{ hl = 'Pmenu', strings = { lsp } },
+					{ hl = 'StatusLine', strings = { lsp } },
 					{ hl = mode_hl,                 strings = { location } },
 				})
 			end,

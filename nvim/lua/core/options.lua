@@ -45,8 +45,7 @@ vim.opt.shiftwidth = 4
 -- Floating window styling
 vim.opt.winborder = 'single'
 
--- Transparent status bar
-vim.cmd(":hi statusline guibg=NONE")
+-- Transparent status bar (set in theme files, after colorscheme loads)
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()
