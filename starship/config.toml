@@ -1,7 +1,7 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = '$jobs$python[\[](bright_white bold) $directory $git_status[\]$character](bright_white bold)'
+format = '$jobs$python[\[](bright_white bold) $directory$hostname $git_status[\]$character](bright_white bold)'
 right_format = '$env_var'
 
 add_newline = false
@@ -12,6 +12,13 @@ format = '$symbol '
 success_symbol = '[\$](bright_white bold)'
 error_symbol = '[\$](bright_red bold)'
 vimcmd_symbol = '[\$](bright_black bold)'
+
+[hostname]
+ssh_only = true
+ssh_symbol = ''
+format = ' @ [$hostname]($style)'
+style = 'bright_yellow'
+trim_at = '.'
 
 [directory]
 format = "[$path]($style)"
