@@ -1,5 +1,3 @@
-nvim/lazy-lock.json
-
 # ignore the per-machine "current" symlink and per-app symlinks
 themes/current
 eza/theme.yml
