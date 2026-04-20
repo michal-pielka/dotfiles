@@ -12,6 +12,9 @@ zcomet load ohmyzsh plugins/git
 # Bind 'jk' to act as an escape
 ZVM_VI_ESCAPE_BINDKEY=jk
 
+# Always start each new prompt in insert mode
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
 # System clipboard for zsh-vi-mode (y/p syncs with Wayland clipboard)
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 ZVM_CLIPBOARD_COPY_CMD='wl-copy'
