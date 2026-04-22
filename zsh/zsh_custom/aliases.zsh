@@ -51,6 +51,7 @@ alias opgurl='open_git_url'
 alias py='python3'
 alias act='source .venv/bin/activate'
 alias deact='deactivate'
+alias rmpyc='fd -t d -g "__pycache__" -I -x rm -r'
 
 # Rust/Cargo
 alias cr='cargo run --release'
