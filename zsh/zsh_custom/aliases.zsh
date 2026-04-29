@@ -57,6 +57,7 @@ alias rmpyc='fd -t d -g "__pycache__" -I -x rm -r'
 alias cr='cargo run --release'
 alias cb='cargo build --release'
 alias ca='cargo add'
+alias ct='cargo test'
 
 # Apps & Utilities
 alias zth='open_file_in_zathura'
