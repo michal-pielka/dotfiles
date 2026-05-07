@@ -1,0 +1,14 @@
+{
+  "main guard": {
+    "prefix": "defmain",
+    "body": [
+      "def main() -> None:",
+      "    ${0:pass}",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    main()"
+    ],
+    "description": "Python main function and guard"
+  },
+}
