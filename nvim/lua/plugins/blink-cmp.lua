@@ -52,7 +52,7 @@ return {
 		},
 
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer', },
+			default = { 'lsp', 'snippets', 'buffer', 'path', },
 		},
 
 		fuzzy = { implementation = 'lua' },
