@@ -1,0 +1,68 @@
+{
+  "main": {
+    "prefix": "main",
+    "body": [
+      "fn main() {",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Rust main function"
+  },
+  "main result": {
+    "prefix": "mainerr",
+    "body": [
+      "fn main() -> Result<(), Box<dyn std::error::Error>> {",
+      "    ${0}",
+      "    Ok(())",
+      "}"
+    ],
+    "description": "Rust main returning Result"
+  },
+  "impl new": {
+    "prefix": "implnew",
+    "body": [
+      "impl ${1:Name} {",
+      "    pub fn new(${2}) -> Self {",
+      "        Self {",
+      "            ${0}",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "Rust impl block with constructor"
+  },
+  "test module": {
+    "prefix": "tests",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "    use super::*;",
+      "",
+      "    #[test]",
+      "    fn ${1:name}() {",
+      "        ${0}",
+      "    }",
+      "}"
+    ],
+    "description": "Rust cfg(test) module"
+  },
+  "test function": {
+    "prefix": "testfn",
+    "body": [
+      "#[test]",
+      "fn ${1:name}() {",
+      "    ${0}",
+      "}"
+    ],
+    "description": "Rust test function"
+  },
+  "if let some": {
+    "prefix": "iflet",
+    "body": [
+      "if let Some(${1:value}) = ${2:option} {",
+      "    ${0}",
+      "}"
+    ],
+    "description": "if let Some pattern"
+  }
+}
