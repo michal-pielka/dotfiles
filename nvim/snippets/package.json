@@ -3,7 +3,7 @@
     "snippets": [
       { "language": "rust", "path": "./rust.json" },
       { "language": "python", "path": "./python.json" },
-      { "language": "go", "path": "./go.json" },
+      { "language": "go", "path": "./go.json" }
     ]
   }
 }
