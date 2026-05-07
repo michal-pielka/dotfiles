@@ -7,9 +7,6 @@ return {
       n_lines = 500,
     })
 
-    -- mini.pairs — lightweight autopairs
-    require('mini.pairs').setup({})
-
     -- mini.jump — enhanced f/F/t/T with consistent ; and , repeats
     require('mini.jump').setup({
       -- highlight = { delay = 0 },
