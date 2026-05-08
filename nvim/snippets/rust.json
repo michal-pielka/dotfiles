@@ -56,6 +56,13 @@
     ],
     "description": "Rust test function"
   },
+  "result error": {
+    "prefix": "reserr",
+    "body": [
+      "Result<(${0}), Box<dyn std::error::Error>>"
+    ],
+    "description": "Rust Result with boxed error"
+  },
   "if let some": {
     "prefix": "iflet",
     "body": [
