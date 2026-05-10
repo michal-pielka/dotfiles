@@ -172,6 +172,36 @@ git_log_interactive() {
   echo "$full_hash"
 }
 
+gh_pr_create_and_auto_merge() {
+  local default_branch
+  default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+  default_branch=${default_branch:-main}
+
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null) || { echo "shipbranch: not on a branch" >&2; return 1; }
+
+  if [[ "$branch" == "$default_branch" ]]; then
+    echo "shipbranch: refusing to ship from $default_branch" >&2; return 1
+  fi
+
+  if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "shipbranch: working tree is dirty, commit or stash first" >&2; return 1
+  fi
+
+  git fetch --quiet origin "$default_branch" || return 1
+  if ! git merge-base --is-ancestor "origin/$default_branch" HEAD; then
+    echo "shipbranch: branch is behind origin/$default_branch, rebase first" >&2; return 1
+  fi
+
+  git push -u origin HEAD || return 1
+
+  if ! gh pr view --json number >/dev/null 2>&1; then
+    gh pr create --fill-first || return 1
+  fi
+
+  gh pr merge --auto --rebase --delete-branch
+}
+
 
 # Universal archive extractor
 extract() {
