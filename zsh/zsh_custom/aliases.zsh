@@ -70,6 +70,7 @@ alias shai='claude-shell-helper'
 alias im='open_file_in_imv'
 alias imf='open_file_in_imv_floating'
 alias spotify='spotify_player'
+alias repos='cd ~/.dolly/repositories'
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"
