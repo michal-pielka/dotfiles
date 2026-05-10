@@ -30,7 +30,6 @@ export ZVM_CURSOR_STYLE_ENABLED=false
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_R_OPTS="--no-preview"
 
-# Note: tab:toggle-preview-full requires my fzf fork
 export FZF_DEFAULT_OPTS='
   --color=fg:-1,fg+:-1
   --color=bg:-1,bg+:-1
@@ -53,7 +52,7 @@ export FZF_DEFAULT_OPTS='
   --separator=""
   --scrollbar=""
   --layout="reverse"
-  --bind="tab:toggle-preview-full,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+  --bind="tab:toggle-preview,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
   --bind="ctrl-s:toggle,ctrl-a:toggle-all"
   --height=~80%
   --pointer="■"
