@@ -22,7 +22,7 @@
     "clock",
   ],
   "clock": {
-      "format": "{:%H:%M on %d.%m}"
+      "format": "{:%H:%M | %d.%m}"
   },
   "cpu": {
     "interval": 1,
