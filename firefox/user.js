@@ -1,6 +1,9 @@
 // Allow userChrome.css theme
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
+// Remove "This time, search with" magnifying glass from search bar
+user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
+
 // Read $XDG_DOWNLOAD_DIR
 user_pref("browser.download.folderList", 1);
 
