@@ -101,7 +101,7 @@
 
 /* Navbar size calc */
 :root{
---tab-border-radius: 6px !important; /* Corner rounding applied to tabs. Default: 6px */
+--tab-border-radius: 0px !important; /* Corner rounding applied to tabs. 0 = squared. Default: 6px */
 --NavbarWidth: 43;   /* % of window width given to the url bar (left slice). Range 36-43 */
 --TabsHeight: 36;    /* Height of the merged tab/navbar row in px. Minimum 30, default 36 */
 --TabsBorder: 8;     /* Extra vertical padding added to the row (wide layout only). Default 8 */
@@ -140,6 +140,21 @@
   outline: none !important;
   transition: .15s !important;
 }
+
+/* Square the url/search bar in every state:
+   - #urlbar-background  -> the pill in the focused state
+   - .urlbar-background  -> the pill in the idle/unfocused state
+   - #searchbar          -> the (optional) separate search bar */
+#urlbar,
+#urlbar-background,
+.urlbar-background,
+#searchbar {
+  border-radius: 0 !important;
+}
+
+/* Square the suggestions dropdown too */
+#urlbar { --urlbarview-border-radius: 0 !important; }
+.urlbarView-row { border-radius: 0 !important; }
 
 /*  Removes the background from the urlbar while not in use  */
 /* Selector reads: a url bar that is NOT hovered AND NOT expanded into the
@@ -204,4 +219,9 @@
   background: none !important;
   cursor: pointer;
   display: -moz-box !important;
+}
+
+.urlbar-background,
+#searchbar {
+  border-radius: 0 !important;
 }
