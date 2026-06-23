@@ -8,11 +8,28 @@
 /* Just comment the lines or blocks for the elements you WANT to see */
 
 /* Menu button */
+/* The button normally lives inside #nav-bar, which this layout caps to the
+   left slice of the window -- so reordering can't reach the true right edge.
+   Instead, pin it to the window's top-right corner with position:fixed
+   (taking it out of the navbar's flow), and lift it above the tabs with
+   z-index. The #TabsToolbar rule below reserves matching space so the last
+   tab doesn't slide underneath it. */
 #PanelUI-button {
-  -moz-box-ordinal-group: 0 !important;
-  order: -2 !important;
-  margin: 2px !important;
+  position: fixed !important;
+  /* Center vertically in the top row: (row height - button height) / 2.
+     Row height = (--TabsHeight + --TabsBorder)px (=44), button ~32px,
+     so this lands ~6px down. Tweak the trailing 16px (= half the button
+     height) if your button renders a different size. */
+  top: calc((var(--TabsHeight) + var(--TabsBorder)) * 0.5px - 16px) !important;
+  right: 4px !important;
+  z-index: 2 !important;
+  margin: 0 !important;
   /* display: none !important; /* uncomment this line to hide the menu button */
+}
+
+/* Keep the rightmost tab clear of the floating menu button (~36px + margin) */
+#TabsToolbar {
+  padding-inline-end: 40px !important;
 }
 
 /* Window control buttons (min, resize and close) */
@@ -67,25 +84,57 @@
 
 /* --- ~END~ element visibility section --- */
 
+/* ===================================================================
+ *  ONE-LINE LAYOUT ENGINE
+ *
+ *  How the single-line trick works:
+ *  By default Firefox stacks two rows -- the tab strip (#TabsToolbar)
+ *  on top, the address bar (#nav-bar) below it. To merge them onto one
+ *  line, the media queries below:
+ *    1. pull #nav-bar UP onto the tab row with a negative margin-top,
+ *    2. reserve the LEFT slice of the window for the url bar
+ *       (via #nav-bar margin-right) and push the tabs into the RIGHT
+ *       slice (via #TabsToolbar margin-left).
+ *  The split point between the two is --NavbarWidth (a percentage).
+ *  Tune the four variables below to resize everything.
+ * =================================================================== */
+
 /* Navbar size calc */
 :root{
---tab-border-radius: 6px !important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 6px  */
---NavbarWidth: 43; /*  Default values: 36 - 43  */
---TabsHeight: 36; /*  Minimum: 30  *//*  Default: 36  */
---TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
---NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
+--tab-border-radius: 6px !important; /* Corner rounding applied to tabs. Default: 6px */
+--NavbarWidth: 43;   /* % of window width given to the url bar (left slice). Range 36-43 */
+--TabsHeight: 36;    /* Height of the merged tab/navbar row in px. Minimum 30, default 36 */
+--TabsBorder: 8;     /* Extra vertical padding added to the row (wide layout only). Default 8 */
+/* Row height used only on the narrow (<950px) fallback layout, where the
+   one-line trick is dropped and the navbar returns to its own row: */
+--NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Default as a number: 44  */}
 
+/* WIDE layout (>=1325px): the url bar's width is FIXED at --NavbarWidth%
+   of 1325px, so it stops growing on big screens and all extra width goes
+   to the tab strip. */
 @media screen and (min-width:1325px)    /*  Only the tabs space will grow from here  */
-{:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important} #nav-bar{margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important}}
+{:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px)!important; /* pull navbar up onto the tab row */ height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(1325px / 100 * var(--NavbarWidth)) !important /* push tabs right, past the url bar's fixed width */} #nav-bar{margin-right: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important; /* cap url bar to the left slice */ vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important /* drop the flexible spacer so the url bar fills its slice */}}
 
+/* MID layout (950-1324px): same trick, but the url bar's width is a live
+   --NavbarWidth% of the viewport (1vw units), so both the url bar and the
+   tab strip grow proportionally as you resize. */
 @media screen and (min-width:950px) and (max-width:1324px)    /*  Both the tabs space and the navbar will grow  */
-{:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(var(--NavbarWidth) * 1vw) !important} #nav-bar{margin-right: calc(100vw - calc(var(--NavbarWidth) * 1vw)) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
+{:root #nav-bar{margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important; height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)} #TabsToolbar{margin-left: calc(var(--NavbarWidth) * 1vw) !important} #nav-bar{margin-right: calc(100vw - calc(var(--NavbarWidth) * 1vw)) !important; vertical-align: center !important} #urlbar-container{min-width: 0px !important;  flex: auto !important} toolbarspring{display: none !important} #TabsToolbar, #nav-bar{transition: margin-top .25s !important /* animate the row snap when crossing the breakpoint */}}
 
+/* NARROW layout (<950px): too cramped for one line -- abandon the merge and
+   let the navbar fall back to its own row beneath the tabs. */
 @media screen and (max-width:949px)    /*  The window is not enough wide for a one line layout  */
 {:root #nav-bar{padding: 0 5px 0 5px!important; height: calc(var(--NavbarHeightSmall) * 1px) !important} toolbarspring{display: none !important;} #TabsToolbar, #nav-bar{transition: margin-top .25s !important}}
+
+/* Shared across all layouts: make the navbar/bookmarks bar transparent (so the
+   tab strip behind shows through), nudge the navbar 3px off the left edge, and
+   force tabs to the configured row height. */
 #nav-bar, #PersonalToolbar{background-color: #0000 !important;background-image: none !important; box-shadow: none !important} #nav-bar{margin-left: 3px;} .tab-background, .tab-stack { min-height: calc(var(--TabsHeight) * 1px) !important}
 
 /*  Removes urlbar border/background  */
+/* #urlbar-background is the pill behind the address text. Stripping its
+   border/outline lets it blend into the transparent navbar. The 0.15s
+   transition smooths the fade when the rule below toggles its background. */
 #urlbar-background {
   border: none !important;
   outline: none !important;
@@ -93,6 +142,10 @@
 }
 
 /*  Removes the background from the urlbar while not in use  */
+/* Selector reads: a url bar that is NOT hovered AND NOT expanded into the
+   results dropdown ([breakout][breakout-extend] = the popped-out search state).
+   In that idle case, hide the pill entirely so only the text shows; it
+   reappears on hover or when you start typing. */
 #urlbar:not(:hover):not([breakout][breakout-extend]) > #urlbar-background {
   box-shadow: none !important;
   background: #0000 !important;
@@ -115,6 +168,12 @@
 }
 
 /*  Tabs close button  */
+/* Reveal the "x" only when relevant, fading at 0.3s instead of popping in:
+   - idle, non-active tab      -> fully hidden (opacity 0)
+   - the active tab            -> faintly visible (45%) so you can always close it
+   - any tab on hover          -> 50%, and the x itself brightens to 100% on hover
+   display:-moz-box keeps the button laid out (so it can fade) rather than
+   removed from the layout, which is what opacity needs to animate. */
 .tabbrowser-tab:not(:hover) .tab-close-button {
   opacity: 0% !important;
   transition: 0.3s !important;
