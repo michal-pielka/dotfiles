@@ -4,6 +4,12 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Remove "This time, search with" magnifying glass from search bar
 user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 
+// Hide tab preview
+user_pref("browser.tabs.hoverPreview.enabled", false)
+
+// Hide toolbar tips (little GTK blobs like "Youtube", "Open application menu", etc)
+user_pref("browser.chrome.toolbar_tips", false)
+
 // Read $XDG_DOWNLOAD_DIR
 user_pref("browser.download.folderList", 1);
 
