@@ -48,37 +48,5 @@ return {
 
 	-- mini.diff — show git diff columns
 	require('mini.diff').setup({})
-
-    -- mini.pick + mini.extra — lightweight fuzzy picker
-    require('custom.mini_pickers').setup_registry() -- my custom pickers
-    require('mini.extra').setup()
-    local pick = require('mini.pick')
-	pick.setup({
-		source = {
-			show = pick.default_show,
-		},
-		mappings = {
-			move_start = '<C-g>',
-			scroll_up = '<C-u>',
-			scroll_down = '<C-d>',
-		},
-		options = {
-			use_cache = true,
-		}
-	})
-
-	map('<leader>F', '<CMD>Pick repository_files<CR>', 'Pick: search repository files')
-	map('<leader>f', '<CMD>Pick files<CR>', 'Pick: search files')
-	map('<leader>g', '<CMD>Pick grep_live<CR>', 'Pick: search grep')
-	map('<leader>b', '<CMD>Pick buffers<CR>', 'Pick: search buffers')
-	map('<leader>/', '<CMD>Pick buf_lines<CR>', 'Pick: search buffers')
-
-	map('<leader>sn', '<CMD>Pick dotfiles<CR>', 'Pick: search dotfiles')
-	map('<leader>ss', '<CMD>Pick pickers<CR>', 'Pick: search pickers')
-    map('<leader>sg', '<CMD>Pick git_status<CR>', 'Pick: search git diff')
-	map('<leader>sd', '<CMD>Pick diagnostic<CR>', 'Pick: search diagnostics')
-	map('<leader>sh', '<CMD>Pick help<CR>', 'Pick: search help')
-	map('<leader>sk', '<CMD>Pick keymaps<CR>', 'Pick: search keymaps')
-
   end,
 }
