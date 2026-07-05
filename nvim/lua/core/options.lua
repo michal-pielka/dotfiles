@@ -2,7 +2,7 @@
 vim.o.number = true
 vim.o.relativenumber = true
 
--- Enable mouse mode, useful
+-- Enable mouse mode
 vim.o.mouse = 'a'
 
 -- Enable break indent
