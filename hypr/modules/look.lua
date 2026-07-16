@@ -33,8 +33,7 @@ hl.config({
 		force_split = 2
 	},
 
-	-- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
-    -- master = {
-    --     new_status = "master",
-    -- },
+	misc = {
+		disable_hyprland_logo = true,
+	}
 })
