@@ -13,7 +13,6 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())          -- dwindle
 hl.bind(mainMod .. " + X", hl.dsp.layout("togglesplit"))    -- dwindle
 
 -- Move focus with mainMod + h/j/k/l
@@ -47,10 +46,10 @@ end
 hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
 
 -- Resize active window
-hl.bind(mainMod .. " + code:20", hl.dsp.window.resize({ x = -15, y = 0 }))
-hl.bind(mainMod .. " + code:21", hl.dsp.window.resize({ x = 15, y = 0 }))
-hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = 15 }))
-hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y = -15 }))
+hl.bind(mainMod .. " + code:20", hl.dsp.window.resize({ x = -15, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + code:21", hl.dsp.window.resize({ x = 15, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = 15, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y = -15, relative = true }), { repeating = true })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
