@@ -15,6 +15,7 @@ hl.config({
 
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
+		no_focus_fallback = true,
 	},
 
 	decoration = {
