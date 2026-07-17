@@ -9,13 +9,6 @@ hl.config({
 		gaps_out = 7,
 
 		border_size = 2,
-
-		resize_on_border = true,
-		layout = "dwindle",
-
-		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-        allow_tearing = false,
-		no_focus_fallback = true,
 	},
 
 	decoration = {
@@ -26,12 +19,6 @@ hl.config({
 			size = 10,
 			passes = 3,
 		},
-	},
-
-	-- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
-	dwindle = {
-		preserve_split = true,
-		force_split = 2
 	},
 
 	misc = {
