@@ -77,9 +77,12 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.dotfiles/scripts/brightness
 hl.bind("CTRL + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl --device='*kbd_backlight*' set +5%"))
 hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl --device='*kbd_backlight*' set 5%-"))
 
--- Enable/Disable touchpad
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("hyprctl keyword 'device[apple-spi-trackpad]:enabled' 'true'"))
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("hyprctl keyword 'device[apple-spi-trackpad]:enabled' 'false'"))
+-- Toggle touchpad
+local trackpadEnabled = true
+hl.bind(mainMod .. " + T", function()
+    trackpadEnabled = not trackpadEnabled
+    hl.device({ name = "apple-spi-trackpad", enabled = trackpadEnabled })
+end)
 
 -- Screenshot - save to clipboard
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenshot_select.sh"))
