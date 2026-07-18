@@ -14,7 +14,7 @@ hl.layer_rule({
 hl.layer_rule({
     match = { namespace = "notifications" },
     blur = true,
-    ignore_alpha = 1,   -- equivalent to old `ignorezero`
+	ignore_alpha = 0,
 })
 
 -- Floating terminal
