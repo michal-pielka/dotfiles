@@ -21,15 +21,77 @@
      so this lands ~6px down. Tweak the trailing 16px (= half the button
      height) if your button renders a different size. */
   top: calc((var(--TabsHeight) + var(--TabsBorder)) * 0.5px - 16px) !important;
-  right: 4px !important;
+  right: calc(var(--MenuBtnRight) * 1px) !important;
   z-index: 2 !important;
   margin: 0 !important;
   /* display: none !important; /* uncomment this line to hide the menu button */
 }
 
-/* Keep the rightmost tab clear of the floating menu button (~36px + margin) */
+/* Keep the rightmost tab clear of everything pinned to the top-right corner:
+   the menu button, the extensions button, and any pinned extension icons. */
 #TabsToolbar {
-  padding-inline-end: 40px !important;
+  padding-inline-end: calc((var(--ExtIconsStart) + var(--ExtIconsCount) * var(--ExtIconWidth)) * 1px) !important;
+}
+
+/* Top-right button strip geometry.
+   Everything pinned to the corner is laid out from these numbers, so the tab
+   padding above and the slot offsets below can never drift apart.
+   Order, right to left: menu button, extensions button, pinned ext icons.
+   The two toolbarbuttons need more clearance than a pinned icon does -- 32px
+   makes the extensions button sit on top of the menu button -- so their pitch
+   (--BtnWidth) is deliberately separate from the icon pitch. */
+:root {
+  --MenuBtnRight: 4;   /* px from the window's right edge to the menu button */
+  --BtnWidth: 40;      /* px of clearance per corner toolbarbutton (menu, extensions) */
+  --ExtIconWidth: 32;  /* px per pinned extension icon (16px logo + button padding) */
+  --ExtIconsCount: 2;  /* how many extension icons are pinned to the toolbar; 0 = all in the panel */
+  /* Where the pinned-icon strip starts: past both corner buttons. */
+  --ExtIconsStart: calc(var(--MenuBtnRight) + 2 * var(--BtnWidth));
+}
+
+/* Pinned extension icons */
+/* Same trick as #PanelUI-button above: they live in #nav-bar (the left
+   slice), so in-flow they can only ever sit between the url bar and the
+   tabs. Pin each one to the window's top-right instead, stacked leftwards
+   from the extensions button. position:fixed removes their layout box
+   entirely, so the url bar (flex:auto) reclaims the slice and the tabs can
+   start earlier -- that's why --NavbarWidth below sits at the low end of
+   its range instead of 43.
+   :nth-last-of-type counts <toolbaritem>s from the end of the customization
+   target. Only #urlbar-container and the extension widgets are toolbaritems
+   and the url bar comes first, so 1 = rightmost extension. Slots run to 6;
+   bump --ExtIconsCount to match what you actually pin so the tabs stay
+   clear. Extensions left in the panel need no slot at all.
+   The :not([customizing]) guard restores normal flow in Customize Toolbar
+   mode so drag-and-drop still makes sense. */
+:root:not([customizing]) #nav-bar .unified-extensions-item {
+  position: fixed !important;
+  top: calc((var(--TabsHeight) + var(--TabsBorder)) * 0.5px - 16px) !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  /* Slot 1, also the fallback for anything past slot 6: stacking icons on
+     top of each other looks broken, but it keeps them out of the url bar. */
+  right: calc(var(--ExtIconsStart) * 1px) !important;
+}
+
+:root:not([customizing]) #nav-bar .unified-extensions-item:nth-last-of-type(2) {
+  right: calc((var(--ExtIconsStart) + var(--ExtIconWidth)) * 1px) !important;
+}
+
+:root:not([customizing]) #nav-bar .unified-extensions-item:nth-last-of-type(3) {
+  right: calc((var(--ExtIconsStart) + 2 * var(--ExtIconWidth)) * 1px) !important;
+}
+
+:root:not([customizing]) #nav-bar .unified-extensions-item:nth-last-of-type(4) {
+  right: calc((var(--ExtIconsStart) + 3 * var(--ExtIconWidth)) * 1px) !important;
+}
+
+:root:not([customizing]) #nav-bar .unified-extensions-item:nth-last-of-type(5) {
+  right: calc((var(--ExtIconsStart) + 4 * var(--ExtIconWidth)) * 1px) !important;
+}
+
+:root:not([customizing]) #nav-bar .unified-extensions-item:nth-last-of-type(6) {
+  right: calc((var(--ExtIconsStart) + 5 * var(--ExtIconWidth)) * 1px) !important;
 }
 
 /* Window control buttons (min, resize and close) */
@@ -46,8 +108,19 @@
 }
 
 /* Extensions button */
+/* Deliberately NOT hidden. It is the anchor for the unified extensions
+   panel, so display:none breaks three things at once: "Pin to Toolbar" has
+   no entry point, the panel has nothing to hang off, and any keyboard
+   shortcut bound to an unpinned extension silently does nothing (an
+   unpinned widget's openPopup() routes through gUnifiedExtensions.openPanel).
+   Pinned to the corner next to the menu button, it costs one icon and keeps
+   every extension one click away instead of eating a toolbar slot each. */
 #unified-extensions-button {
-  display: none !important
+  position: fixed !important;
+  top: calc((var(--TabsHeight) + var(--TabsBorder)) * 0.5px - 16px) !important;
+  right: calc((var(--MenuBtnRight) + var(--BtnWidth)) * 1px) !important;
+  z-index: 2 !important;
+  margin: 0 !important;
 }
 
 /* Extension name inside URL bar */
@@ -102,7 +175,11 @@
 /* Navbar size calc */
 :root{
 --tab-border-radius: 0px !important; /* Corner rounding applied to tabs. 0 = squared. Default: 6px */
---NavbarWidth: 43;   /* % of window width given to the url bar (left slice). Range 36-43 */
+--NavbarWidth: 36;   /* % of window width given to the url bar (left slice). Range 36-43.
+                        Lowered from 43: the extensions button and any pinned extension
+                        icons used to occupy ~7% of the slice; now that they're fixed at
+                        the top-right, the url bar keeps its old visible width and the
+                        tabs start earlier. */
 --TabsHeight: 36;    /* Height of the merged tab/navbar row in px. Minimum 30, default 36 */
 --TabsBorder: 8;     /* Extra vertical padding added to the row (wide layout only). Default 8 */
 /* Row height used only on the narrow (<950px) fallback layout, where the
