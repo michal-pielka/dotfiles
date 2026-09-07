@@ -26,6 +26,7 @@ alias -g S='| sort'
 alias -g U='| uniq'
 alias -g W='| wc'
 alias -g F='| fzf'
+alias -g J='| jq'
 
 # File System & Search
 alias ls='LS_COLORS= eza --git --color=always --group-directories-first --header --sort=name'
