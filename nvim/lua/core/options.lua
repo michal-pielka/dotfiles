@@ -29,6 +29,12 @@ vim.o.timeoutlen = 300
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- Single global statusline. Also makes horizontal splits draw a '─'
+-- separator (WinSeparator), matching the '│' between vertical splits.
+-- With per-window statuslines the transparent statusline was the only
+-- thing between horizontal splits, so they looked unbordered.
+vim.o.laststatus = 3
+
 -- Preview substitutions live, in a new window, for example :%s/foo/bar/g
 vim.o.inccommand = 'split'
 
