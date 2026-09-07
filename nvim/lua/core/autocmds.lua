@@ -1,18 +1,8 @@
--- IMPORTANT
--- The following autocmd is only meant to be used on asahi linux
--- we use native clangd since mason fails to install it
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp" },
-  callback = function()
-    vim.lsp.start {
-      name = "clangd",
-      cmd = { "/usr/bin/clangd" },
-      root_dir = vim.fs.dirname(
-        vim.fs.find({ ".git", "compile_commands.json", "compile_flags.txt" }, { upward = true })[1]
-      ),
-    }
-  end,
-})
+-- NOTE: clangd used to be started here with vim.lsp.start() *in addition to*
+-- the vim.lsp.enable('clangd') in plugins/lspconfig.lua, which attached two
+-- clangd clients to every C/C++ buffer - duplicate diagnostics and two full
+-- indexing passes. It is now configured in one place, in plugins/lspconfig.lua
+-- (still pointing at the system clangd, since Mason has no aarch64 build).
 
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd('TextYankPost', {

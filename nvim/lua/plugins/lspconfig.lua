@@ -71,9 +71,24 @@ return {
 	  ts_ls = {},
 	}
 
-	-- Not in Mason (system-installed)
+	-- Not in Mason (system-installed).
+	-- Mason has no clangd build for aarch64/asahi, so point at the Fedora
+	-- package. This is the ONLY place clangd is set up - do not also call
+	-- vim.lsp.start() for it, or each buffer gets two clients.
 	local manual_servers = {
-	  clangd = {},
+	  clangd = {
+		cmd = {
+		  '/usr/bin/clangd',
+		  '--background-index',
+		  '--completion-style=detailed',
+		  -- Arduino/embedded headers are not meant to be included directly.
+		  '--header-insertion=never',
+		},
+		-- .clangd and compile_commands.json are generated per-project (see
+		-- the ESP32 project's esp32/gen-compile-commands.sh); either one is
+		-- enough to anchor the project root.
+		root_markers = { 'compile_commands.json', 'compile_flags.txt', '.clangd', '.git' },
+	  },
 	}
 
     -- Ensure tools/servers installed via mason-tool-installer
