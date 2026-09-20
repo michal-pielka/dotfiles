@@ -17,7 +17,8 @@ hl.layer_rule({
 	ignore_alpha = 0,
 })
 
--- Floating terminal
+-- App rules
+-- terminal floating
 hl.window_rule({
     match = { title = "^(floatingTerminal)$" },
     float = true,
@@ -28,6 +29,13 @@ hl.window_rule({
 -- imv floating image viewer
 hl.window_rule({
     match = { title = "^(imv_floating)$" },
+    float = true,
+    center = true,
+})
+
+-- keepassxc floating
+hl.window_rule({
+    match = { title = "^(KeePassXC)$" },
     float = true,
     center = true,
 })
