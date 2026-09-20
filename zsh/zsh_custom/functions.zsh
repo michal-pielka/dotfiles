@@ -128,13 +128,6 @@ start_typst_preview() {
   disown
 }
 
-open_teacher_website_picker() {
-	selected=$(cat "$HOME/.scriptfiles/prowadzacy.txt" | fzf --delimiter ";" --with-nth=2.. --accept-nth 1)
-	if [ -n "$selected" ]; then
-		xdg-open "$selected" > /dev/null 2>&1 & disown
-	fi
-}
-
 wifi_fzf() {
 	nmcli -f 'bssid,signal,bars,freq,ssid' --color yes device wifi |
 		fzf \
