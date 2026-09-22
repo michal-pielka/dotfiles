@@ -72,6 +72,7 @@ alias im='open_file_in_imv'
 alias imf='open_file_in_imv_floating'
 alias spotify='spotify_player'
 alias repos='cd ~/.dolly/repositories'
+alias cppass=keepassxc_select_and_copy_password
 
 # iPhone Clipboard Sync
 alias icopy="get_clipboard.sh"
