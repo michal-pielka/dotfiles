@@ -4,8 +4,8 @@
   "themes": [
     "/home/michalpielka/.pi/themes"
   ],
-  "defaultProvider": "openrouter",
-  "defaultModel": "deepseek/deepseek-v4.1-flash",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-5-5",
   "editorPaddingX": 1,
   "hideThinkingBlock": true,
   "enableInstallTelemetry": false,
