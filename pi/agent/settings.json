@@ -1,0 +1,18 @@
+{
+  "lastChangelogVersion": "0.87.1",
+  "theme": "gruvbox",
+  "themes": [
+    "/home/michalpielka/.pi/themes"
+  ],
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4.1-flash",
+  "editorPaddingX": 1,
+  "hideThinkingBlock": false,
+  "enableInstallTelemetry": false,
+  "tuiMode": "regular",
+  "quietStartup": true,
+  "packages": [
+    "npm:pi-vim",
+    "npm:@juicesharp/rpiv-ask-user-question"
+  ]
+}
