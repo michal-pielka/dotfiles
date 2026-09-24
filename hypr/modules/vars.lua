@@ -2,7 +2,7 @@ local M = {}
 
 M.mainMod = "SUPER"
 
-M.terminal = "footclient" -- custom foot fork
+M.terminal = "foot-vim-client" -- custom foot fork
 M.browser = "firefox"
 M.menu = "fuzzel"
 
