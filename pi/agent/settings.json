@@ -7,7 +7,7 @@
   "defaultProvider": "openrouter",
   "defaultModel": "deepseek/deepseek-v4.1-flash",
   "editorPaddingX": 1,
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "enableInstallTelemetry": false,
   "tuiMode": "regular",
   "quietStartup": true,
