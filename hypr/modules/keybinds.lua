@@ -93,5 +93,8 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.dotfiles/scripts/screensh
 -- Screen record - save to clipboard
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenrecord_select.sh"))
 
+-- Lock screen
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
+
 -- Toggle waybar
 hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
