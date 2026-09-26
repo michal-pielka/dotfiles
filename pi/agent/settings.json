@@ -13,6 +13,7 @@
   "quietStartup": true,
   "packages": [
     "npm:pi-vim",
-    "npm:@juicesharp/rpiv-ask-user-question"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-subagents"
   ]
 }
