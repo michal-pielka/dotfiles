@@ -77,12 +77,12 @@
 		"syntaxPunctuation": "fg2",
 
 		"thinkingOff": "bg2",
-		"thinkingMinimal": "gray",
-		"thinkingLow": "blue",
-		"thinkingMedium": "aqua",
-		"thinkingHigh": "yellow",
-		"thinkingXhigh": "orange",
-		"thinkingMax": "red",
+		"thinkingMinimal": "bg2",
+		"thinkingLow": "bg2",
+		"thinkingMedium": "bg2",
+		"thinkingHigh": "bg2",
+		"thinkingXhigh": "bg2",
+		"thinkingMax": "bg2",
 
 		"bashMode": "orange"
 	},
