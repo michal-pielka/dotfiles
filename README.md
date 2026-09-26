@@ -73,13 +73,8 @@ Fonts
   <img src="assets/images/desktop_screenshot_brightness.png" alt="Desktop Screenshot Brightness" width="49%" />
 </p>
 
-- Universal theme switcher: change-theme
-  - One command to apply coherent theming defined in themes/theme_name across hyprland, neovim, waybar, mako, foot, fuzzel, zsh and eza.
-
-<p align="center">
-  <img src="assets/images/foot_screenshot_ayu.png" alt="Foot Screenshot Ayu" width="49%" />
-  <img src="assets/images/foot_screenshot_nord.png" alt="Foot Screenshot Nord" width="49%" />
-</p>
+- Gruvbox everywhere
+  - Colors live in a separate file next to each tool's config (e.g. foot/gruvbox.ini, included from foot.ini).
 
 ---
 

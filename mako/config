@@ -1,5 +1,5 @@
-# Include the theme
-include=~/.config/mako/theme.conf
+# Colors
+include=~/.config/mako/gruvbox.conf
 
 border-size=2
 margin=14
