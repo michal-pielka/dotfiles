@@ -1,4 +1,4 @@
-# Gruvbox colors
+# Gruvbox theme
 COLOR_GREEN="#b8bb26"
 COLOR_LILAC="#d3869b"
 COLOR_ORANGE="#fe8019"

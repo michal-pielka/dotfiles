@@ -74,7 +74,7 @@ Fonts
 </p>
 
 - Gruvbox everywhere
-  - Colors live in a separate file next to each tool's config (e.g. foot/gruvbox.ini, included from foot.ini).
+  - Colors live in a separate file next to each tool's config (e.g. foot/theme.ini, included from foot.ini).
 
 ---
 

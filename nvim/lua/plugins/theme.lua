@@ -1,3 +1,4 @@
+-- Gruvbox theme
 return {
   {
     'ellisonleao/gruvbox.nvim',

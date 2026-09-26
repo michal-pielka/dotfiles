@@ -51,7 +51,7 @@ vim.opt.shiftwidth = 4
 -- Floating window styling
 vim.opt.winborder = 'single'
 
--- Transparent status bar (set in plugins/colorscheme.lua, after colorscheme loads)
+-- Transparent status bar (set in plugins/theme.lua, after colorscheme loads)
 
 -- Sync clipboard between OS and Neovim.
 vim.schedule(function()

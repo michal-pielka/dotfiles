@@ -1,5 +1,6 @@
 # style name or JSON path (default "auto")
-style: "/home/michalpielka/.config/glow/gruvbox.json"
+# theme.json is gruvbox
+style: "/home/michalpielka/.config/glow/theme.json"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown
