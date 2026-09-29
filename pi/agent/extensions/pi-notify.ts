@@ -16,6 +16,32 @@ const execFileAsync = promisify(execFile);
 const MIN_SECONDS = Number(process.env.PI_NOTIFY_MIN_SECONDS ?? 15);
 const ICON = `${process.env.HOME}/.dotfiles/pi/assets/pi-logo.svg`;
 
+const GRAY = "#928374";
+const CLOSERS = ["your move", "standing by", "ready when you are", "over to you", "ball's in your terminal"];
+
+function esc(text: string): string {
+	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// Last thing the assistant said, one line, truncated for a notification body.
+function lastAssistantLine(ctx: { sessionManager: { getBranch(): unknown[] } }): string {
+	const branch = ctx.sessionManager.getBranch();
+	for (let i = branch.length - 1; i >= 0; i--) {
+		const entry = branch[i] as { type?: string; message?: { role?: string; content?: unknown } };
+		if (entry.type !== "message" || entry.message?.role !== "assistant") continue;
+		const content = entry.message.content;
+		if (!Array.isArray(content)) continue;
+		const text = content
+			.filter((c): c is { type: string; text: string } => c?.type === "text")
+			.map((c) => c.text)
+			.join(" ")
+			.replace(/\s+/g, " ")
+			.trim();
+		if (text) return text.length > 100 ? `${text.slice(0, 97)}...` : text;
+	}
+	return "";
+}
+
 function parentPids(): number[] {
 	const pids: number[] = [];
 	let pid = process.ppid;
@@ -63,6 +89,9 @@ export default function (pi: ExtensionAPI) {
 
 		const project = basename(ctx.cwd);
 		const duration = elapsed >= 60 ? `${Math.round(elapsed / 60)}m ${Math.round(elapsed % 60)}s` : `${Math.round(elapsed)}s`;
-		notify(`pi - ${project}`, `done in ${duration}, ready for input`);
+		const closer = CLOSERS[Math.floor(Math.random() * CLOSERS.length)];
+		const snippet = lastAssistantLine(ctx);
+		const body = `${esc(snippet)}\n<span foreground="${GRAY}">${duration} - ${esc(closer)}</span>`;
+		notify(`pi - ${project}`, body);
 	});
 }
