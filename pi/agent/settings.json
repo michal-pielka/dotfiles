@@ -4,8 +4,8 @@
   "themes": [
     "/home/michalpielka/.pi/themes"
   ],
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-5-5",
+  "defaultProvider": "openrouter",
+  "defaultModel": "moonshotai/kimi-k3",
   "editorPaddingX": 1,
   "hideThinkingBlock": true,
   "enableInstallTelemetry": false,
