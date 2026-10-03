@@ -11,23 +11,26 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('minimal-lsp-attach', { clear = true }),
       callback = function(event)
+        local function bufmap(lhs, rhs, desc)
+          vim.keymap.set('n', lhs, rhs, { desc = desc, buffer = event.buf })
+        end
 
-        map('gd', vim.lsp.buf.definition,        'Go to Definition')
-        map('grr', vim.lsp.buf.references,        'Go to References')
-        map('grn', vim.lsp.buf.rename,    'Rename Symbol')
-        map('K',  vim.lsp.buf.hover,             'Hover Docs')
-        -- map('gD', vim.lsp.buf.declaration,       'Go to Declaration')
-        -- map('gi', vim.lsp.buf.implementation,    'Go to Implementation')
-        -- map('gt', vim.lsp.buf.type_definition,   'Go to Type Definition')
-        -- map('<leader>ca', vim.lsp.buf.code_action,'Code Action', { 'n', 'x' })
-        -- map('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
+        bufmap('gd', vim.lsp.buf.definition, 'Go to Definition')
+        bufmap('grr', vim.lsp.buf.references, 'Go to References')
+        bufmap('grn', vim.lsp.buf.rename, 'Rename Symbol')
+        bufmap('K', vim.lsp.buf.hover, 'Hover Docs')
+        -- bufmap('gD', vim.lsp.buf.declaration, 'Go to Declaration')
+        -- bufmap('gi', vim.lsp.buf.implementation, 'Go to Implementation')
+        -- bufmap('gt', vim.lsp.buf.type_definition, 'Go to Type Definition')
+        -- bufmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+        -- bufmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Help')
 
         -- Diagnostics navigation
-		map('<leader>d', vim.diagnostic.open_float, 'Show Diagnostics')
-        map('[d', vim.diagnostic.goto_prev, 'Prev Diagnostic')
-        map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+        bufmap('<leader>d', vim.diagnostic.open_float, 'Show Diagnostics')
+        bufmap('[d', function() vim.diagnostic.jump { count = -1 } end, 'Prev Diagnostic')
+        bufmap(']d', function() vim.diagnostic.jump { count = 1 } end, 'Next Diagnostic')
 
-        map('<leader>l', function()
+        bufmap('<leader>l', function()
           vim.lsp.buf.format { async = true }
         end, 'Format Buffer')
       end,
@@ -60,9 +63,9 @@ return {
 	  },
 	  pyrefly = {},
 	  ruff = {
+		-- Lint diagnostics stay on; pyrefly owns hover.
 		on_attach = function(client)
 		  client.server_capabilities.hoverProvider = false
-		  client.server_capabilities.diagnosticProvider = false
 		end,
 	  },
 	  rust_analyzer = {},
