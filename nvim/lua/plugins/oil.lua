@@ -2,6 +2,9 @@ return {
   "stevearc/oil.nvim",
   lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  keys = {
+    { "<leader>e", "<CMD>Oil<CR>", desc = "Open Oil" },
+  },
   opts = {
     default_file_explorer = true,
     skip_confirm_for_simple_edits = true,
@@ -9,6 +12,4 @@ return {
       sort = { { "name", "asc" } },
     },
   },
-
-	vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = "Open Oil" } )
 }
