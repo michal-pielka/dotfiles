@@ -28,6 +28,10 @@
     "interval": 1,
     "format": "cpu | {usage}",
     "tooltip-format": "{usage}%",
+    "states": {
+      "warning": 71,
+      "critical": 93
+    },
   },
   "load": {
     "interval": 5,
@@ -38,13 +42,17 @@
     "interval": 5,
     "format": "temp | {temperatureC}°C",
     "max-length": 20,
-    "warning-threshold": 60,
-    "critical-threshold": 80,
+    "warning-threshold": 41,
+    "critical-threshold": 63,
   },
   "memory": {
     "interval": 1,
     "format": "mem | {percentage}%",
     "tooltip-format": "{used}/{total} GiB",
+    "states": {
+      "warning": 83,
+      "critical": 97
+    },
   },
   "network": {
     "format-wifi": "wifi | {essid}",

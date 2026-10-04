@@ -99,18 +99,18 @@ window#waybar {
   border: 2px solid @mainfg;
 }
 
+#cpu.warning,
+#memory.warning,
 #temperature.warning {
   color: @warning;
   border: 2px solid @warning;
 }
 
+#cpu.critical,
+#memory.critical,
 #temperature.critical {
   color: @critical;
   border: 2px solid @critical;
-}
-
-#temperature.critical {
-    color: @critical;
 }
 
 #network.connected {
