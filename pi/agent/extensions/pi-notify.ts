@@ -1,5 +1,5 @@
 /**
- * pi-notify - mako/desktop notification when a Pi run settles and waits for input.
+ * pi-notify - mako/desktop notification when a Pi run settles or a subagent finishes.
  *
  * Skips the notification when:
  * - the run was quicker than PI_NOTIFY_MIN_SECONDS (default 15)
@@ -16,30 +16,13 @@ const execFileAsync = promisify(execFile);
 const MIN_SECONDS = Number(process.env.PI_NOTIFY_MIN_SECONDS ?? 15);
 const ICON = `${process.env.HOME}/.dotfiles/pi/assets/pi-logo.svg`;
 
-const GRAY = "#928374";
-const CLOSERS = ["your move", "standing by", "ready when you are", "over to you", "ball's in your terminal"];
-
 function esc(text: string): string {
 	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-// Last thing the assistant said, one line, truncated for a notification body.
-function lastAssistantLine(ctx: { sessionManager: { getBranch(): unknown[] } }): string {
-	const branch = ctx.sessionManager.getBranch();
-	for (let i = branch.length - 1; i >= 0; i--) {
-		const entry = branch[i] as { type?: string; message?: { role?: string; content?: unknown } };
-		if (entry.type !== "message" || entry.message?.role !== "assistant") continue;
-		const content = entry.message.content;
-		if (!Array.isArray(content)) continue;
-		const text = content
-			.filter((c): c is { type: string; text: string } => c?.type === "text")
-			.map((c) => c.text)
-			.join(" ")
-			.replace(/\s+/g, " ")
-			.trim();
-		if (text) return text.length > 100 ? `${text.slice(0, 97)}...` : text;
-	}
-	return "";
+function formatDuration(seconds: number): string {
+	const s = Math.round(seconds);
+	return s >= 60 ? `${Math.floor(s / 60)}m ${s % 60}s` : `${s}s`;
 }
 
 function parentPids(): number[] {
@@ -73,25 +56,46 @@ function notify(title: string, body: string): void {
 	execFile("notify-send", ["--app-name=pi", `--icon=${ICON}`, title, body], () => {});
 }
 
+// Short label for a subagent call: agent name, or the first words of the task.
+function subagentLabel(args: { agent?: string; task?: string }): string {
+	if (args?.agent) return args.agent;
+	const task = (args?.task ?? "").replace(/\s+/g, " ").trim();
+	return task.length > 60 ? `${task.slice(0, 57)}...` : task || "subagent";
+}
+
 export default function (pi: ExtensionAPI) {
 	let startedAt = 0;
+	const subagents = new Map<string, { label: string; startedAt: number }>();
 
 	pi.on("agent_start", async () => {
 		startedAt = Date.now();
 	});
 
+	pi.on("tool_execution_start", async (event) => {
+		if (event.toolName !== "subagent" || event.parentToolCallId) return;
+		subagents.set(event.toolCallId, { label: subagentLabel(event.args), startedAt: Date.now() });
+	});
+
+	pi.on("tool_execution_end", async (event) => {
+		const sub = subagents.get(event.toolCallId);
+		subagents.delete(event.toolCallId);
+		if (!sub) return;
+		const elapsed = (Date.now() - sub.startedAt) / 1000;
+		if (elapsed < MIN_SECONDS) return;
+		if (await isTerminalFocused()) return;
+
+		const state = event.isError ? "subagent failed" : "subagent done";
+		notify(`pi - ${state}`, `${esc(sub.label)}\n${formatDuration(elapsed)}`);
+	});
+
 	// agent_settled fires once the full run is done (after retries/compaction/queued work),
 	// unlike agent_end which fires per low-level run.
 	pi.on("agent_settled", async (_event, ctx) => {
+		subagents.clear();
 		const elapsed = (Date.now() - startedAt) / 1000;
 		if (elapsed < MIN_SECONDS) return;
 		if (await isTerminalFocused()) return;
 
-		const project = basename(ctx.cwd);
-		const duration = elapsed >= 60 ? `${Math.round(elapsed / 60)}m ${Math.round(elapsed % 60)}s` : `${Math.round(elapsed)}s`;
-		const closer = CLOSERS[Math.floor(Math.random() * CLOSERS.length)];
-		const snippet = lastAssistantLine(ctx);
-		const body = `${esc(snippet)}\n<span foreground="${GRAY}">${duration} - ${esc(closer)}</span>`;
-		notify(`pi - ${project}`, body);
+		notify(`pi - ${basename(ctx.cwd)}`, `done in ${formatDuration(elapsed)}`);
 	});
 }
