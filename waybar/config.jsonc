@@ -86,7 +86,7 @@
     "tooltip-format": "{desc}"
   },
   "battery": {
-    "interval": 1,
+    "interval": 30,
     "states": {
       "good": 80,
       "warning": 15,
