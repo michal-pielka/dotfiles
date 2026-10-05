@@ -96,5 +96,8 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenre
 -- Lock screen
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
+-- Lock on lid close
+hl.bind("switch:on:Apple SMC power/lid events", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"), { locked = true })
+
 -- Toggle waybar
 hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("killall -SIGUSR1 waybar"))
