@@ -52,6 +52,6 @@ export FZF_DEFAULT_OPTS='
   --layout="reverse"
   --bind="tab:toggle-preview,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
   --bind="ctrl-s:toggle,ctrl-a:toggle-all"
-  --height=~80%
+  --height=~99%
   --pointer="■"
   --preview "bat --style=numbers --color=always --line-range :500 {} 2>/dev/null"'

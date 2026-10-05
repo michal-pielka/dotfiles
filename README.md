@@ -1,97 +1,58 @@
-# dotfiles - handcrafted configs for questionable efficiency.
+<div align="center">
 
-<p align="center">
-  <img src="assets/images/foot_screenshot.png" alt="Foot Terminal Screenshot" width="100%" />
+## dotfiles - **handcrafted configs for questionable efficiency**
+
+<img src="assets/images/foot_screenshot.png" alt="Gruvbox desktop with ASCII volume OSD" width="90%" />
+
+<p>
+  <img src="https://img.shields.io/badge/Hyprland-d65d0e?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Neovim-98971a?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Zsh-458588?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Foot-b16286?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Gruvbox-3c3836?style=for-the-badge" />
+</p>
+<p>
+  <img src="https://img.shields.io/badge/Asahi_Linux-supported-689d6a?style=flat-square&logo=apple&logoColor=white" />
+  <img src="https://img.shields.io/badge/Ubuntu-supported-E95420?style=flat-square&logo=ubuntu&logoColor=white" />
+  <img src="https://img.shields.io/github/license/michal-pielka/dotfiles?style=flat-square&color=928374" />
 </p>
 
-A clean, modern Wayland-centric development environment centered around:
-- hyprland (Wayland compositor)
-- foot (fast, minimal terminal emulator)
-- zsh
-- neovim (modal editor configured in Lua)
+A Wayland-centric, keyboard-first development environment with sensible defaults
+and a consistent Gruvbox theme across every tool.
 
-These dotfiles aim for a productive, minimal, and keyboard-first workflow with sensible defaults and clear structure, designed for a mostly terminal workflow.
+</div>
 
 ---
 
-- Supported and tested on:
-  - Asahi Linux (Fedora-based on Apple Silicon)
-  - Ubuntu
+## What's inside
 
----
-
-## Key components
-
-- hyprland: tiling, window rules, and keybindings
-- foot: styling
-- zsh: aliases, plugins, completions, prompt
-- neovim: plugins, keymaps, autocommands, options and LSP setup
-
----
-
-## Tools configured by these dotfiles
-
-- neovim
-- foot
-- alacritty
-- zsh
-- hypr (Hyprland, hyprpaper, hyprlock, hypridle)
-- waybar
-- fuzzel
-- mako
-- fzf
-- bat
-- eza
-- git
-- firefox
-- keyd
-- starship
-
-## Additional tools used
-
-- fdfind
-- tealdeer
-- btop
-- wl-clipboard
-- grim
-- slurp
-- imagemagick
-- delta
-
-Fonts
-- JetBrains Mono Nerd Font
-
----
-
-## Highlights
-
-- ASCII OSD via mako for volume/brightness
-  - Media keys trigger small shell scripts that adjust levels and send a monospace ASCII art via notify-send, styled with mako.
-
-<p align="center">
-  <img src="assets/images/desktop_screenshot_volume.png" alt="Desktop Screenshot Volume" width="49%" />
-  <img src="assets/images/desktop_screenshot_brightness.png" alt="Desktop Screenshot Brightness" width="49%" />
-</p>
-
-- Gruvbox everywhere
-  - Colors live in a separate file next to each tool's config (e.g. foot/theme.ini, included from foot.ini).
+| Area | Configs |
+|---|---|
+| Compositor | Hyprland, hyprpaper, hyprlock, hypridle |
+| Terminals | foot, alacritty |
+| Shell | zsh + zcomet, starship prompt, vi mode |
+| Editor | Neovim (Lua): plugins, keymaps, LSP, autocommands |
+| Desktop | waybar, fuzzel, mako, firefox |
+| CLI | git, fzf, bat, eza, tealdeer, btop, delta |
+| System | keyd, JetBrains Mono Nerd Font |
 
 ---
 
 ## Installation
 
-Simply clone the repository and use the setup.sh script located in dotfiles_setup directory for a guided install.
+```sh
+git clone git@github.com:michal-pielka/dotfiles.git
+cd dotfiles/dotfiles_setup
+./setup.sh
+```
 
-What the script typically does (review it first):
-- Installs common dependencies and tools.
-- Symlinks selected modules into your home directory.
-- Sets Zsh as your default shell and installs oh-my-zsh.
-- Can offer to install fonts (e.g., JetBrains Mono Nerd Font).
-
----
-
-## Contributing / Personalization
-
-These dotfiles are opinionated but intended to be readable and adaptable. Fork or copy what you need, keep machine-specific overrides out of version control, and feel free to propose improvements.
+The script installs common dependencies, symlinks selected modules into your
+home directory, sets zsh as the default shell, and can install the fonts.
+Review it before running.
 
 ---
+
+## Personalization
+
+Opinionated but readable. Fork it, copy what you need, and keep
+machine-specific overrides out of version control.
