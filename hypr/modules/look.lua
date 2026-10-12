@@ -23,5 +23,10 @@ hl.config({
 
 	misc = {
 		disable_hyprland_logo = true,
+	},
+
+	xwayland = {
+		-- expose physical resolution to X11 apps (games under muvm/FEX)
+		force_zero_scaling = true,
 	}
 })
