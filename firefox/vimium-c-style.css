@@ -38,7 +38,7 @@
 
 /* HUD */
 .HUD {
-  border-radius: 3px;
+  border-radius: 0;
   text-transform: lowercase;
   color: var(--title);
   max-width: 420px;

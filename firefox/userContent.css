@@ -1,0 +1,5 @@
+/* Squares all rendered pages; user !important beats author !important */
+
+* {
+  border-radius: 0 !important;
+}
