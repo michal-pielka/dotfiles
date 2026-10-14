@@ -5,7 +5,7 @@
     "/home/michalpielka/.pi/themes"
   ],
   "defaultProvider": "openrouter",
-  "defaultModel": "moonshotai/kimi-k3",
+  "defaultModel": "z-ai/glm-5.3",
   "editorPaddingX": 1,
   "hideThinkingBlock": true,
   "enableInstallTelemetry": false,
