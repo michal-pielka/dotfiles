@@ -48,8 +48,8 @@ hl.bind(mainMod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
 -- Resize active window
 hl.bind(mainMod .. " + code:20", hl.dsp.window.resize({ x = -15, y = 0, relative = true }), { repeating = true })
 hl.bind(mainMod .. " + code:21", hl.dsp.window.resize({ x = 15, y = 0, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = 15, relative = true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y = -15, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + code:20", hl.dsp.window.resize({ x = 0, y = -15, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + code:21", hl.dsp.window.resize({ x = 0, y = 15, relative = true }), { repeating = true })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -92,6 +92,9 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("~/.dotfiles/scripts/screensh
 
 -- Screen record - save to clipboard
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenrecord_select.sh"))
+
+-- Screen OCR - copy text from selected screen area to clipboard
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenocr_select.sh"))
 
 -- Lock screen
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
