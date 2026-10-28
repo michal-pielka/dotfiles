@@ -278,3 +278,11 @@ open_file_in_imv_floating () {
 
 	imv -w imv_floating -W "$win_w" -H "$win_h" "$file" "$@" &> /dev/null &!
 }
+
+get_public_ip() {
+	if [[ "$1" == "-v" || "$1" == "--verbose" ]]; then
+		curl -s https://ipinfo.io
+	else
+		curl -4 -s https://ifconfig.me
+	fi
+}

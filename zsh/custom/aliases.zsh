@@ -79,6 +79,7 @@ alias icopy="get_clipboard.sh"
 alias ipaste="put_clipboard.sh"
 
 # Network
+alias myip="get_public_ip"
 alias rmproxy="unset http_proxy && unset HTTP_PROXY && unset https_proxy && unset HTTPS_PROXY && unset all_proxy && unset ALL_PROXY"
 alias mvd="mullvad"
 alias mvdc="mullvad connect"
